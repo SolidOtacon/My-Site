@@ -9,7 +9,7 @@ import {
 } from '@angular/material';
 
 @NgModule({
-  imports: [
+  exports: [
     CommonModule,
     MdButtonModule,
     MdCoreModule,

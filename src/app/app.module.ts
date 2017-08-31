@@ -1,5 +1,6 @@
+import { SharedModule } from './shared/shared.module';
 import { StarterComponent } from './starter/starter.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
@@ -18,7 +19,9 @@ import { reducers } from './ngrx/app.reducers';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    SharedModule,
     StoreModule.forRoot(reducers),
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
