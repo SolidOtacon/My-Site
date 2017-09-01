@@ -1,4 +1,4 @@
-<md-toolbar class="mat-elevation-z1" color="primary">My App</md-toolbar>
+<md-toolbar class="mat-elevation-z1" color="primary">{{(title | async).title}}</md-toolbar>
 <md-sidenav-container class="sidenav-container">
   <md-sidenav mode="side" opened="true">
     <md-nav-list>
@@ -8,7 +8,6 @@
           <span [class.active]="link.active" [class.secondary]="!link.active">{{link.name}}</span>
         </a>
       </span>
-
     </md-nav-list>
   </md-sidenav>
   <router-outlet></router-outlet>

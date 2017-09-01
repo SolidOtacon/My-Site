@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import * as fromApp from '../ngrx/app.reducers';
+import * as LayoutAction from '../ngrx/layout/layout.actions';
 
 export interface ILink {
   name: string;
@@ -10,21 +14,25 @@ export interface ILink {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app-container.component.html',
+  styleUrls: ['./app-container.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppContainerComponent implements OnInit {
+  pageTitle: Observable<{ title: string }>;
   buttonList: Array<ILink>;
   currentActiveButton: string;
 
   constructor(
     private router: Router,
-  ) {
+    private store: Store<fromApp.AppState>
+  ) { }
+
+  ngOnInit() {
     this.buttonList = [
       {
         name: 'About',
         link: '/about',
-        active: false,
+        active: true,
         icon: 'person'
       },
       {
@@ -34,25 +42,28 @@ export class AppComponent implements OnInit {
         icon: 'school'
       },
       {
-        name: 'Work',
+        name: 'Work Experience',
         link: '/work',
         active: false,
         icon: 'work'
       },
       {
-        name: 'Contact',
+        name: 'Contact Information',
         link: '/contact',
         active: false,
         icon: 'chat'
       }
     ];
     this.currentActiveButton = '';
-  }
+    this.pageTitle = this.store.select('title');
 
-  ngOnInit() {
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        this.setIsActive(val.url);
+        if (val.url !== '/') {
+          this.setIsActive(val.url);
+        } else {
+          this.setIsActive('/about');
+        }
       }
     });
   }
@@ -66,6 +77,7 @@ export class AppComponent implements OnInit {
       if (button.link === val) {
         button.active = true;
         this.currentActiveButton = button.name;
+        this.store.dispatch(new LayoutAction.SetPageTitle(button.name));
       } else {
         button.active = false;
       }
