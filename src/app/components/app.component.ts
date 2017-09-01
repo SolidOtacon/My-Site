@@ -4,7 +4,7 @@ import { ILink } from './../models/link.model';
 @Component({
   selector: 'app-component',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

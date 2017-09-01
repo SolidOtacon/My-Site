@@ -1,8 +1,7 @@
 <md-toolbar
-  class="mat-elevation-z1"
-  color="primary"
+  class="mat-elevation-z1 primary"
 >
-  {{(title | async).title}}
+  <span class="text">{{(title | async).title}}</span>
   <span class="fill-remaining-space"></span>
   <span>
     <span class="space block">

@@ -1,34 +1,5 @@
-@import '~@angular/material/theming';
-@include mat-core();
+$primary: mat-palette($mat-light-blue);
+$accent: mat-palette($mat-light-green);
+$warn: mat-palette($mat-orange);
 
-$primary: mat-palette($mat-grey, 50);
-$accent:  mat-palette($mat-grey, A400);
-
-$my-app-theme: mat-light-theme($primary, $accent);
-
-@include angular-material-theme($my-app-theme);
-
-// @mixin active-theme($theme) {
-//   // Extract whichever individual palettes you need from the theme.
-//   $primary: map-get($theme, primary);
-//   $accent: map-get($theme, accent);
-
-//   // Use mat-color to extract individual colors from a palette as necessary.
-//   .active {
-//     color: mat-color($accent, A400);
-//     // border-color: mat-color($accent, A400);
-//   }
-// }
-
-// @include active-theme($theme);
-
-// $dark-primary: mat-palette($mat-grey, 800);
-// $dark-accent:  mat-palette($mat-grey, A400);
-// $dark-theme:   mat-dark-theme($dark-primary, $dark-accent);
-
-// // Include the alternative theme styles inside of a block with a CSS class. You can make this
-// // CSS class whatever you want. In this example, any component inside of an element with
-// // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
-// .dark-theme {
-//   @include angular-material-theme($dark-theme);
-// }
+$my-app-theme: mat-light-theme($primary, $accent, $warn);
