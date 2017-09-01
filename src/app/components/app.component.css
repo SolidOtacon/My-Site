@@ -3,8 +3,16 @@ md-sidenav {
   background-color: #EEEEEE;
 }
 
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
 .sidenav-container {
   height: calc(100% - 64px);
+}
+
+.block {
+  display: inline-block;
 }
 
 .mat-drawer-container {
