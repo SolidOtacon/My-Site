@@ -2,7 +2,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { ILink } from '../containers/app-container.component';
+import { ILink } from './../models/link.model';
 
 @Component({
   selector: 'app-component',

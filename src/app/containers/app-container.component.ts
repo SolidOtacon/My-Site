@@ -1,16 +1,10 @@
+import { ILink } from './../models/link.model';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import * as fromApp from '../ngrx/app.reducers';
 import * as LayoutAction from '../ngrx/layout/layout.actions';
-
-export interface ILink {
-  name: string;
-  link: string;
-  active: boolean;
-  icon: string;
-}
 
 @Component({
   selector: 'app-root',
