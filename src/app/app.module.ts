@@ -1,3 +1,4 @@
+import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { StarterComponent } from './starter/starter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +19,7 @@ import { reducers } from './ngrx/app.reducers';
     StarterComponent
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

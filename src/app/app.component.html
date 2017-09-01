@@ -1,7 +1,15 @@
-<md-toolbar>My App</md-toolbar>
-<md-sidenav-container>
+<md-toolbar class="mat-elevation-z1" color="primary">My App</md-toolbar>
+<md-sidenav-container class="sidenav-container">
   <md-sidenav mode="side" opened="true">
-    Jolly good!
+    <md-nav-list>
+      <span *ngFor="let link of buttonList">
+        <a md-list-item md-icon mdListIcon routerLink={{link.link}}>
+          <md-icon class="space" [class.active]="link.active" [class.notActive]="!link.active">{{link.icon}}</md-icon>
+          <span [class.active]="link.active" [class.secondary]="!link.active">{{link.name}}</span>
+        </a>
+      </span>
+
+    </md-nav-list>
   </md-sidenav>
   <router-outlet></router-outlet>
   <!-- footer here -->

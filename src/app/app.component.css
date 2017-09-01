@@ -1,1 +1,53 @@
+md-sidenav {
+  width: 240px;
+  background-color: #EEEEEE;
+}
+
+.sidenav-container {
+  height: calc(100% - 64px);
+}
+
+.mat-drawer-container {
+    background-color: #F5F5F5;
+    color: rgba(0, 0, 0, .87);
+}
+.mat-elevation-z3 {
+   position: relative;
+   z-index: 3;
+}
+.mat-elevation-z2 {
+   position: relative;
+   z-index: 2;
+}
+
+.mat-elevation-z1 {
+   position: relative;
+   box-shadow: 0 2px 5px rgba(0,0,0, .05);
+   z-index: 1;
+}
+
+button[md-button] {
+  text-align: left;
+}
+
+.space {
+  margin-right: 10px;
+}
+
+.secondary {
+  color: rgba(117, 117, 117, 0.87);
+}
+
+.notActive {
+  color: rgba(117, 117, 117, 0.87);
+}
+
+.active {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: bold;
+}
+
+/* .elevation-4dp {
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+} */
 
