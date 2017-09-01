@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'education', component: StarterComponent },
-  { path: 'contact', component: StarterComponent },
+  { path: 'contact', loadChildren: 'app/contact/contact.module#ContactModule' },
   { path: 'work', component: StarterComponent },
   { path: 'about', component: StarterComponent },
   { path: '**', redirectTo: '/about', pathMatch: 'full' },

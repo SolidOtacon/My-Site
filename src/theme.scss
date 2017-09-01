@@ -1,5 +1,11 @@
 $primary: mat-palette($mat-light-blue);
-$accent: mat-palette($mat-light-green);
+$accent: mat-palette($mat-cyan);
 $warn: mat-palette($mat-orange);
 
 $my-app-theme: mat-light-theme($primary, $accent, $warn);
+
+// $primary: mat-palette($mat-grey);
+// $accent: mat-palette($mat-brown, 50);
+// $dark-warn: mat-palette($mat-orange);
+
+// $my-app-theme: mat-dark-theme($primary, $accent, $warn);
