@@ -26,7 +26,7 @@ export class AppContainerComponent implements OnInit {
       {
         name: 'About',
         link: '/about',
-        active: true,
+        active: false,
         icon: 'person'
       },
       {
