@@ -11,5 +11,5 @@ export interface AppState {
 // set up the actual reducers for all feature reducers
 export const reducers: ActionReducerMap<AppState> = {
   routes: routerReducer,
-  title: fromLayout.layoutRecuder
+  title: fromLayout.layoutReducer
 };

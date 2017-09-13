@@ -20,7 +20,7 @@
   <md-sidenav mode="side" opened="true">
     <md-nav-list>
       <span *ngFor="let link of buttonList">
-        <a md-list-item md-icon mdListIcon routerLink={{link.link}}>
+        <a md-list-item md-icon mdListIcon routerLink={{link.link}} [class.mat-list-item-focus]="link.active">
           <md-icon class="space" [class.active]="link.active" [class.notActive]="!link.active">{{link.icon}}</md-icon>
           <span [class.active]="link.active" [class.secondary]="!link.active">{{link.name}}</span>
         </a>

@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'education', component: StarterComponent },
   { path: 'contact', loadChildren: 'app/contact/contact.module#ContactModule' },
   { path: 'work', loadChildren: 'app/work/work.module#WorkModule' },
+  { path: 'skills', loadChildren: 'app/skills/skills.module#SkillsModule' },
   { path: 'about', component: StarterComponent },
   { path: '**', redirectTo: '/about', pathMatch: 'full' },
 ];

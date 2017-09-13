@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkComponent implements OnInit {
 
+  // TODO: Test data, replace with @input
   workCards: Array<WorkCard>;
 
   constructor() { }

@@ -9,7 +9,7 @@ const initialState: State = {
 };
 
 
-export function layoutRecuder(state = initialState, action: LayoutActions.LayoutActions) {
+export function layoutReducer(state = initialState, action: LayoutActions.LayoutActions) {
   switch (action.type) {
     case LayoutActions.SET_PAGE_TITLE:
       return {

@@ -42,11 +42,17 @@ export class AppContainerComponent implements OnInit {
         icon: 'work'
       },
       {
+        name: 'Skills',
+        link: '/skills',
+        active: false,
+        icon: 'chat'
+      },
+      {
         name: 'Contact Information',
         link: '/contact',
         active: false,
         icon: 'chat'
-      }
+      },
     ];
     this.currentActiveButton = '';
     this.pageTitle = this.store.select('title');
