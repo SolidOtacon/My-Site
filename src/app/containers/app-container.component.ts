@@ -45,7 +45,7 @@ export class AppContainerComponent implements OnInit {
         name: 'Skills',
         link: '/skills',
         active: false,
-        icon: 'chat'
+        icon: 'star_rate'
       },
       {
         name: 'Contact Information',
