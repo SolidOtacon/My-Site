@@ -7,7 +7,8 @@ import {
   MdSidenavModule,
   MdToolbarModule,
   MdIconModule,
-  MdCardModule
+  MdCardModule,
+  MdGridListModule,
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +20,8 @@ import {
     MdSidenavModule,
     MdToolbarModule,
     MdIconModule,
-    MdCardModule
+    MdCardModule,
+    MdGridListModule
   ],
   declarations: []
 })
