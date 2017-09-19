@@ -1,5 +1,6 @@
 import { ILink } from './../models/link.model';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -18,8 +19,11 @@ export class AppContainerComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private store: Store<fromApp.AppState>
-  ) { }
+    private store: Store<fromApp.AppState>,
+    private title: Title
+  ) {
+    title.setTitle('Trent Matthias');
+  }
 
   ngOnInit() {
     this.buttonList = [

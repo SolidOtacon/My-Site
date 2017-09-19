@@ -15,7 +15,7 @@ export class WorkContainerComponent implements OnInit {
   ngOnInit() {
     this.workCards = [
       {
-        startDate: 'January',
+        startDate: 'January 2017',
         endDate: 'Present',
         company: 'General Communication Inc.',
         title: 'Graduate Intern',
@@ -52,8 +52,8 @@ export class WorkContainerComponent implements OnInit {
         ],
       },
       {
-        startDate: 'June',
-        endDate: 'Decemeber',
+        startDate: 'June 2016',
+        endDate: 'Decemeber 2016',
         company: 'General Communication Inc.',
         title: 'Intern',
         description: `Gained a strong fundamental foundation in web development
