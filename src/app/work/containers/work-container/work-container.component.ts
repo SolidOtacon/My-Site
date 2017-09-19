@@ -35,7 +35,8 @@ export class WorkContainerComponent implements OnInit {
               'Code splitting using CommonsChunkPlugin and lazy loading optimizations',
               'Use of Leaflet and Material-UI to build an interactive map to show ticket data',
               'Familiarity with Docker, Neo4j, and micro-services architecture',
-              'Use of Git and JIRA to track progress and peer review code'
+              'Use of Git and JIRA to track progress and peer review code',
+              'Integrated Karma and Jasmine into Webpack',
             ]
           },
           {
@@ -44,6 +45,7 @@ export class WorkContainerComponent implements OnInit {
             application, and adding a PHP backend to communicate with a MySQL database.`,
             bullets: [
               'Built using Material 2 components and material design best practices',
+              'Implemented end to end testing using protractor',
               'Built an authentication system using signed JSON Web Tokens',
               'Mobile version using Angular Flex-Layout',
               'Built using Angular CLI'
