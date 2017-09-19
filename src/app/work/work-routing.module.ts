@@ -1,9 +1,9 @@
-import { WorkComponent } from './components/work/work.component';
+import { WorkContainerComponent } from './containers/work-container/work-container.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: WorkComponent },
+  { path: '', component: WorkContainerComponent },
 ];
 
 @NgModule({
