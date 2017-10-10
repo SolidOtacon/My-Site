@@ -1,9 +1,10 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 
 @NgModule({
-  imports: [],
-  declarations: []
+  providers: [
+    { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true }
+  ]
 })
 export class CoreModule {
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {

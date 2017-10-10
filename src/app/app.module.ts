@@ -1,6 +1,5 @@
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { StarterComponent } from './starter/starter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,8 +16,7 @@ import { reducers } from './ngrx/app.reducers';
 @NgModule({
   declarations: [
     AppContainerComponent,
-    AppComponent,
-    StarterComponent
+    AppComponent
   ],
   imports: [
     CoreModule,

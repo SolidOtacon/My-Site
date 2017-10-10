@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 @import 'src/theme.scss';
 
-md-sidenav {
+mat-sidenav {
   width: 240px;
 }
 
@@ -37,7 +37,7 @@ md-sidenav {
    z-index: 1;
 }
 
-button[md-button] {
+button[mat-button] {
   text-align: left;
 }
 

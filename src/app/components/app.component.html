@@ -1,4 +1,4 @@
-<md-toolbar
+<mat-toolbar
   class="mat-elevation-z1"
 >
   <span class="text">{{(title | async).title}}</span>
@@ -15,20 +15,20 @@
       </a>
     </span>
 </span>
-</md-toolbar>
-<md-sidenav-container class="sidenav-container">
-  <md-sidenav mode="side" opened="true">
-    <md-nav-list>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened="true">
+    <mat-nav-list>
       <span *ngFor="let link of buttonList">
-        <a md-list-item md-icon mdListIcon routerLink={{link.link}} [class.mat-list-item-focus]="link.active">
-          <md-icon class="space" [class.active]="link.active" [class.notActive]="!link.active">{{link.icon}}</md-icon>
+        <a mat-list-item mat-icon matListIcon routerLink={{link.link}} [class.mat-list-item-focus]="link.active">
+          <mat-icon class="space" [class.active]="link.active" [class.notActive]="!link.active">{{link.icon}}</mat-icon>
           <span [class.active]="link.active" [class.secondary]="!link.active">{{link.name}}</span>
         </a>
       </span>
-    </md-nav-list>
-  </md-sidenav>
+    </mat-nav-list>
+  </mat-sidenav>
   <router-outlet></router-outlet>
   <!-- footer here -->
-</md-sidenav-container>
+</mat-sidenav-container>
 
 
