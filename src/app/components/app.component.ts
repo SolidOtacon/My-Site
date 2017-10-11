@@ -14,7 +14,7 @@ export class AppComponent {
   @Input() buttonList: Array<ILink>;
   @Input() drawerOpened: boolean;
   @Input() drawerMode: string;
-  @Input() toggleDrawer: (event) => boolean;
+  @Input() toggleDrawer: (event) => void;
   @Input() drawerToggleMedia: IMedia;
   @Input() activeMediaQuery: string;
 }

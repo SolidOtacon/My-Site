@@ -96,12 +96,20 @@ export class AppContainerComponent implements OnInit {
   }
 
   toggleDrawer(event = null) {
+    let type = '';
+    if (!event) {
+      type = 'backdrop';
+    } else {
+      type = event.type;
+    }
     if (this.drawerToggleMedia.hasOwnProperty(this.activeMediaQuery)) {
-      if (event) {
-        if (event.key === 'Escape' && this.drawerOpened === true) {
-          this.drawerOpened = !this.drawerOpened;
-        }
-      } else {
+      if (this.drawerOpened === false) {
+        this.drawerOpened = true;
+      } else if (type === 'backdrop' && this.drawerOpened === true) {
+        this.drawerOpened = !this.drawerOpened;
+      } else if (type === 'click' && this.drawerOpened === true) {
+        this.drawerOpened = !this.drawerOpened;
+      } else if (type === 'keydown' && event.key === 'Escape' && this.drawerOpened === true) {
         this.drawerOpened = !this.drawerOpened;
       }
     }
