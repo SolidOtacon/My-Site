@@ -1,7 +1,8 @@
-<mat-toolbar
-  class="mat-elevation-z1"
->
-  <span class="text">{{(title | async).title}}</span>
+<mat-toolbar class="mat-elevation-z1">
+  <button mat-icon-button *ngIf="drawerMode === 'over'" (click)="toggleDrawer()">
+    <mat-icon class="icon" aria-label="Example icon-button with a heart icon">menu</mat-icon>
+  </button>
+  <span class="text" [class.titleTextMargin]="drawerMode === 'over'">{{(title | async).title}}</span>
   <span class="fill-remaining-space"></span>
   <span>
     <span class="space block">
@@ -16,10 +17,10 @@
     </span>
 </span>
 </mat-toolbar>
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav mode="side" opened="true">
+<mat-sidenav-container class="sidenav-container" (backdropClick)="toggleDrawer()">
+  <mat-sidenav mode={{drawerMode}} opened={{drawerOpened}} (keydown)="toggleDrawer($event)">
     <mat-nav-list>
-      <span *ngFor="let link of buttonList">
+      <span *ngFor="let link of buttonList" (click)="toggleDrawer()">
         <a mat-list-item mat-icon matListIcon routerLink={{link.link}} [class.mat-list-item-focus]="link.active">
           <mat-icon class="space" [class.active]="link.active" [class.notActive]="!link.active">{{link.icon}}</mat-icon>
           <span [class.active]="link.active" [class.secondary]="!link.active">{{link.name}}</span>

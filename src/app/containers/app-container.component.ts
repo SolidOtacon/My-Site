@@ -6,6 +6,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import * as fromApp from '../ngrx/app.reducers';
 import * as LayoutAction from '../ngrx/layout/layout.actions';
+import { Subscription } from 'rxjs/Subscription';
+import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +18,33 @@ export class AppContainerComponent implements OnInit {
   pageTitle: Observable<{ title: string }>;
   buttonList: Array<ILink>;
   currentActiveButton: string;
+  drawerOpened = true;
+  drawerMode = 'side';
+  drawerToggleMedia = {
+    xs: 'xs',
+    sm: 'sm',
+    md: 'md'
+  };
+
+  watcher: Subscription;
+  activeMediaQuery = '';
 
   constructor(
+    media: ObservableMedia,
     private router: Router,
     private store: Store<fromApp.AppState>,
     private title: Title
   ) {
+    this.watcher = media.subscribe((change: MediaChange) => {
+      this.activeMediaQuery = change.mqAlias;
+      if (this.drawerToggleMedia.hasOwnProperty(change.mqAlias)) {
+        this.drawerOpened = false;
+        this.drawerMode = 'over';
+      } else {
+        this.drawerOpened = true;
+        this.drawerMode = 'side';
+      }
+    });
     title.setTitle('Trent Matthias');
   }
 
@@ -70,6 +93,18 @@ export class AppContainerComponent implements OnInit {
         }
       }
     });
+  }
+
+  toggleDrawer(event = null) {
+    if (this.drawerToggleMedia.hasOwnProperty(this.activeMediaQuery)) {
+      if (event) {
+        if (event.key === 'Escape') {
+          this.drawerOpened = !this.drawerOpened;
+        }
+      } else {
+        this.drawerOpened = !this.drawerOpened;
+      }
+    }
   }
 
   setIsActive(val: string) {

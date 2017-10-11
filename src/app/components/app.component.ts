@@ -1,3 +1,4 @@
+import { IMedia } from './../models/media.model';
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ILink } from './../models/link.model';
 
@@ -11,4 +12,9 @@ import { ILink } from './../models/link.model';
 export class AppComponent {
   @Input() title: string;
   @Input() buttonList: Array<ILink>;
+  @Input() drawerOpened: boolean;
+  @Input() drawerMode: string;
+  @Input() toggleDrawer: (event) => boolean;
+  @Input() drawerToggleMedia: IMedia;
+  @Input() activeMediaQuery: string;
 }

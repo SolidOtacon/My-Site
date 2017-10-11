@@ -5,6 +5,10 @@ mat-sidenav {
   width: 240px;
 }
 
+.icon {
+  color: white;
+}
+
 .fill-remaining-space {
   flex: 1 1 auto;
 }
@@ -15,6 +19,10 @@ mat-sidenav {
 
 .block {
   display: inline-block;
+}
+
+.titleTextMargin {
+  margin-left: 4px;
 }
 
 .text {

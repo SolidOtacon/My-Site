@@ -9,6 +9,7 @@
 
 mat-card {
   width: 100%;
+  min-width: 372px;
 }
 
 p {

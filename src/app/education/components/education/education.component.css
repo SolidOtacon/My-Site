@@ -1,0 +1,18 @@
+.padding {
+  padding: 8px;
+}
+
+.center-img {
+  width: 30%;
+  min-width: 312px;
+  display: block;
+  margin: auto;
+}
+
+p {
+  min-width: 312px;
+}
+
+.center {
+  text-align: center;
+}
