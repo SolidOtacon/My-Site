@@ -98,7 +98,7 @@ export class AppContainerComponent implements OnInit {
   toggleDrawer(event = null) {
     if (this.drawerToggleMedia.hasOwnProperty(this.activeMediaQuery)) {
       if (event) {
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && this.drawerOpened === true) {
           this.drawerOpened = !this.drawerOpened;
         }
       } else {
