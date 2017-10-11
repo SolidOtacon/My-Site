@@ -21,7 +21,15 @@
   <mat-sidenav mode={{drawerMode}} opened={{drawerOpened}} (keydown)="toggleDrawer($event)">
     <mat-nav-list>
       <span *ngFor="let link of buttonList" (click)="toggleDrawer($event)">
-        <a mat-list-item mat-icon matListIcon routerLink={{link.link}} [class.mat-list-item-focus]="link.active">
+        <a
+          mat-list-item mat-icon matListIcon
+          routerLink={{link.link}}
+          #rla="routerLinkActive"
+          [attr.cdk-focus-region-start]="rla.isActive ? '' : null"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact: true}"
+          [class.mat-list-item-focus]="link.active"
+        >
           <mat-icon class="space" [class.active]="link.active" [class.notActive]="!link.active">{{link.icon}}</mat-icon>
           <span [class.active]="link.active" [class.secondary]="!link.active">{{link.name}}</span>
         </a>
