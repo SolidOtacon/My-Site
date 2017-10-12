@@ -49,8 +49,7 @@ export class SkillsContainerComponent implements AfterViewInit {
     this.cols = (this.media.isActive('xs') ||
     this.media.isActive('sm')) ? 3 : 5;
 
-    this.rowHeight = (!this.media.isActive('xs') ||
-    !this.media.isActive('sm')) ? '4:4' : '6:7';
+    this.rowHeight = '3:2';
   }
 
 }

@@ -2,14 +2,6 @@
   padding: 8px;
 }
 
-img {
-  width: 150px;
-  max-width: 100%;
-  max-height: 150px;
-  height: auto;
-}
-
-/*TODO: img resize  */
 .bigimg {
   width: 150px;
   height: 150px;
@@ -18,12 +10,16 @@ img {
 }
 
 .smallimg {
-  width: 75px;
-  height: 75px;
-  min-height: 75px;
-  min-width: 75px;
+  width: 50px;
+  height: 50px;
+  min-height: 50px;
+  min-width: 50px;
 }
 
 .smallname {
-  height: 30px !important;
+  height: 20px !important;
+}
+
+.bigname {
+  height: 35px !important;
 }
