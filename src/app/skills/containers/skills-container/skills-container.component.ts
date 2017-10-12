@@ -46,7 +46,6 @@ export class SkillsContainerComponent implements AfterViewInit {
   }
 
   private updateGrid(): void {
-    console.log(this.media.isActive('xs'));
     this.cols = (this.media.isActive('xs') ||
     this.media.isActive('sm')) ? 3 : 5;
 
