@@ -21,7 +21,7 @@ export class SkillsContainerComponent implements OnInit {
     {text: 'Redux', cols: 1, rows: 1, img: '/assets/logos/redux.svg'},
     {text: 'Node.js', cols: 1, rows: 1, img: '/assets/logos/Node.js.svg'},
     {text: 'PHP', cols: 1, rows: 1, img: '/assets/logos/PHP.svg'},
-    {text: 'JSON Web Tokens', cols: 1, rows: 1, img: '/assets/logos/jwt.svg'},
+    {text: 'JWT', cols: 1, rows: 1, img: '/assets/logos/jwt.svg'},
     {text: 'NPM', cols: 1, rows: 1, img: '/assets/logos/Npm.svg'},
     {text: 'HTML5', cols: 1, rows: 1, img: '/assets/logos/HTML5.svg'},
     {text: 'CSS3', cols: 1, rows: 1, img: '/assets/logos/CSS3.svg'},

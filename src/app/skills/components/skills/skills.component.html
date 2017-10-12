@@ -6,8 +6,8 @@
     [colspan]="tile.cols"
     [rowspan]="tile.rows"
   >
-    <img src={{tile.img}}>
-    <mat-grid-tile-footer>
+    <img [class.bigimg]="cols > 3" [class.smallimg]="cols <= 3" src={{tile.img}}>
+    <mat-grid-tile-footer [class.smallname]="cols <= 3">
       {{tile.text}}
     </mat-grid-tile-footer>
   </mat-grid-tile>
