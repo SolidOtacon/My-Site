@@ -4,13 +4,11 @@ export interface WorkCard {
   endDate: string;
   company: string;
   title: string;
-  description: string;
+  description: Array<string>;
   jobInception?: Array<Inception>;
-  bullets?: Array<string>;
 }
 
 export interface Inception {
   title: string;
-  description: string;
-  bullets?: Array<string>;
+  description: Array<string>;
 }

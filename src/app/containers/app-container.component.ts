@@ -75,7 +75,7 @@ export class AppContainerComponent implements OnInit {
         icon: 'star_rate'
       },
       {
-        name: 'Contact Information',
+        name: 'Contact',
         link: '/contact',
         active: false,
         icon: 'chat'

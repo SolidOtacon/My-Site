@@ -11,25 +11,17 @@
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p>{{card.description}}</p>
+      <p *ngFor="let description of card.description; let i = index" [class.firstp]="i === 0">{{description}}</p>
       <div *ngIf="card.jobInception">
-        <div *ngFor="let inception of card.jobInception">
+        <div *ngFor="let inception of card.jobInception;">
           <p class="italic inceptionTitle">{{inception.title}}</p>
-          <p class="inceptionDescription">{{inception.description}}</p>
-          <mat-list *ngIf="inception.bullets">
-            <mat-list-item class="list-item" *ngFor="let bullet of inception.bullets">
-              <mat-icon class="icon">fiber_manual_record</mat-icon>
-              <p>{{bullet}}</p>
-            </mat-list-item>
-          </mat-list>
+          <p *ngFor="let description of inception.description; let i = index"
+          [class.firstp]="i === 0" class="inceptionDescription"
+          >
+            {{description}}
+          </p>
         </div>
       </div>
-      <mat-list *ngIf="card.bullets">
-        <mat-list-item class="list-item" *ngFor="let bullet of card.bullets">
-          <mat-icon class="icon">fiber_manual_record</mat-icon>
-          <p>{{bullet}}</p>
-        </mat-list-item>
-      </mat-list>
     </mat-card-content>
   </mat-card>
 </div>

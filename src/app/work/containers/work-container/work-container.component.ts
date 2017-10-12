@@ -19,37 +19,45 @@ export class WorkContainerComponent implements OnInit {
         endDate: 'Present',
         company: 'General Communication Inc.',
         title: 'Graduate Intern',
-        description: `Rotational Assignments lasting 4 months each (1 year term).`,
+        description: [
+          `Rotational Assignments lasting 4 months each (1 year term).`
+        ],
         jobInception: [
           {
             title: 'Last Rotation: Data Analytics',
-            description: `Responsible for generating reports in
-            Tableau using big data cleaned in Alteryx workflows.`,
+            description: [
+              `Created reports in Tableau using big data cleaned in Alteryx workflows.
+              Created Splunk dashboards to moniter critical servers and keep track of errors.`
+            ],
           },
           {
             title: 'Second Rotation: Digital Innovation Group',
-            description: `Responsible for fleshing out an idea into a
-            full website using React.js, and Webpack/Babel update for customer facing website.`,
-            bullets: [
-              'Updated Webpack to Webpack 3 significantly reducing loading times',
-              'Code splitting using CommonsChunkPlugin and lazy loading optimizations',
-              'Use of Leaflet and Material-UI to build an interactive map to show ticket data',
-              'Familiarity with Docker, Neo4j, and micro-services architecture',
-              'Use of Git and JIRA to track progress and peer review code',
-              'Integrated Karma and Jasmine into Webpack',
-            ]
+            description: [
+              `Created a full website in React to display ticket data by region on a map; idea came from an old hackathon.
+              Used Mapbox tiles and Leaflet for React to build and manipulate the map. Worked with the design team to follow
+              specifications and build beautiful layouts for every component.
+              Followed Material Design specifications and used the Material-UI NPM library.
+              Responsive design using Flexbox CSS to support mobile devices and different displays.
+              Application built using the flux design pattern with multiple stores`,
+              `Revamped the Webpack and Babel config for the main customer facing website, significantly reducing
+              the loading times. Split code using CommonsChunkPlugin and added the webpack dev server to facilitate a
+              better development environment. Cross browser compatability imporovements using auto prefix from PostCSS and Webpack
+              loaders. Integrated Karma and Jasmine into new Webpack config by rebuilding config file for Karma
+              from scratch`,
+              `Team used an Agile/Lean methodology with heavy use of code reviews.
+              Created high quality components for customer facing site`,
+            ],
           },
           {
             title: 'First Rotation: Network Integration Team',
-            description: `Responsible for overhauling an already existing website with an Angular 2/4
-            application, and adding a PHP backend to communicate with a MySQL database.`,
-            bullets: [
-              'Built using Material 2 components and material design best practices',
-              'Implemented end to end testing using protractor',
-              'Built an authentication system using signed JSON Web Tokens',
-              'Mobile version using Angular Flex-Layout',
-              'Built using Angular CLI'
-            ]
+            description: [
+              `Overhauld a website from scratch using Angular 2/4 and created a PHP backend API to manipulate a
+              MySQL database. Created a custom stateless authentication system using signed JSON Web Tokens.`,
+              `Followed Material Design guidelines and used Material 2 NPM package.
+              Responsive layout through the use of Angular/Flex-Layout.
+              State management through the use of RXJS and Subjects to communicate across components through services.`,
+              `Implemented end to end testing using protractor. Application built using Angular CLI.`
+            ],
           }
         ],
       },
@@ -58,9 +66,14 @@ export class WorkContainerComponent implements OnInit {
         endDate: 'Decemeber 2016',
         company: 'General Communication Inc.',
         title: 'Intern',
-        description: `Gained a strong fundamental foundation in web development
-        using Angular 2 to build reusable web components for web forms, and Node.js
-        to communicate with CouchDB.`,
+        description: [
+          `Gained a strong fundamental foundation in web development
+          using Angular 2 to build reusable web components for web forms.
+          Use of Node.js to manipluate SQL data to fit in CouchDB.
+          Created reusable components for web forms using Semantic UI, and
+          participated in code reviews.`,
+          `Maintained SharePoint manual for appication and designed it for web blog style pages from word documents.`
+        ],
       }
     ];
   }
