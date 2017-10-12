@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
@@ -7,7 +7,7 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
   templateUrl: './skills-container.component.html',
   styleUrls: ['./skills-container.component.css']
 })
-export class SkillsContainerComponent implements OnInit {
+export class SkillsContainerComponent implements AfterViewInit {
 
   tiles = [
     {text: 'Angular', cols: 1, rows: 1, img: '/assets/logos/angular.svg'},
@@ -32,23 +32,26 @@ export class SkillsContainerComponent implements OnInit {
     sm: 'sm',
   };
 
-  watcher: Subscription;
-  cols = 5;
-  rowHeight = '6:7';
+  cols: number;
+  rowHeight: string;
 
-  constructor(media: ObservableMedia) {
-    this.watcher = media.subscribe((change: MediaChange) => {
-      if (this.mediaPoints.hasOwnProperty(change.mqAlias)) {
-        this.cols = 3;
-        this.rowHeight = '4:4';
-      } else {
-        this.cols = 5;
-        this.rowHeight = '6:7';
-      }
-    });
+  constructor(private media: ObservableMedia) {
+    this.updateGrid();
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    // ObservableMedia does not fire on init so you have to manually update the grid first.
+    this.updateGrid();
+    this.media.subscribe(change => { this.updateGrid(); });
+  }
+
+  private updateGrid(): void {
+    console.log(this.media.isActive('xs'));
+    this.cols = (this.media.isActive('xs') ||
+    this.media.isActive('sm')) ? 3 : 5;
+
+    this.rowHeight = (!this.media.isActive('xs') ||
+    !this.media.isActive('sm')) ? '4:4' : '6:7';
   }
 
 }
