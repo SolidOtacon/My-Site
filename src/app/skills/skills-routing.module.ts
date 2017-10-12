@@ -1,9 +1,9 @@
-import { SkillsComponent } from './components/skills/skills.component';
+import { SkillsContainerComponent } from './containers/skills-container/skills-container.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: SkillsComponent },
+  { path: '', component: SkillsContainerComponent },
 ];
 
 @NgModule({

@@ -1,3 +1,18 @@
 <div class="container">
-
+  <mat-grid-list cols={{cols}} rowHeight={{rowHeight}} role="list">
+  <mat-grid-tile
+    *ngFor="let tile of tiles"
+    role="listitem"
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows"
+  >
+    <img src={{tile.img}}>
+    <mat-grid-tile-footer>
+      {{tile.text}}
+    </mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>
+<p>
+  See all my skills on LinkedIn!
+</p>
 </div>

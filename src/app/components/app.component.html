@@ -17,7 +17,7 @@
     </span>
 </span>
 </mat-toolbar>
-<mat-sidenav-container class="sidenav-container" (backdropClick)="toggleDrawer()">
+<mat-sidenav-container class="sidenav-container" (backdropClick)="toggleDrawer($event)">
   <mat-sidenav mode={{drawerMode}} opened={{drawerOpened}} (keydown)="toggleDrawer($event)">
     <mat-nav-list>
       <span *ngFor="let link of buttonList" (click)="toggleDrawer($event)">
