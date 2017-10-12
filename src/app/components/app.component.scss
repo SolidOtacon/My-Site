@@ -29,20 +29,11 @@ mat-sidenav {
   color: rgb(255, 255, 255);
 }
 
-.mat-elevation-z3 {
-   position: relative;
-   z-index: 3;
-}
-.mat-elevation-z2 {
-   position: relative;
-   z-index: 2;
-}
-
-.mat-elevation-z1 {
-   position: relative;
-   background: mat-color($primary, 800);
-   box-shadow: 0 2px 5px rgba(0,0,0, .25);
-   z-index: 1;
+.toolbar {
+  position: relative;
+  background: mat-color($primary, 800);
+  box-shadow: 0 2px 5px rgba(0,0,0, .25);
+  z-index: 1;
 }
 
 button[mat-button] {
