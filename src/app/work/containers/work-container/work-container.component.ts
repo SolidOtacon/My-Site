@@ -27,7 +27,7 @@ export class WorkContainerComponent implements OnInit {
             title: 'Last Rotation: Data Analytics',
             description: [
               `Created reports in Tableau using big data cleaned in Alteryx workflows.
-              Created Splunk dashboards to moniter critical servers and keep track of errors.`
+              Created Splunk dashboards to monitor critical servers and keep track of errors.`
             ],
           },
           {
@@ -39,10 +39,10 @@ export class WorkContainerComponent implements OnInit {
               Followed Material Design specifications and used the Material-UI NPM library.
               Responsive design using Flexbox CSS to support mobile devices and different displays.
               Application built using the flux design pattern with multiple stores`,
-              `Revamped the Webpack and Babel config for the main customer facing website, significantly reducing
+              `Revamped the Webpack and Babel configuration for the main customer facing website, significantly reducing
               the loading times. Split code using CommonsChunkPlugin and added the webpack dev server to facilitate a
-              better development environment. Cross browser compatability imporovements using auto prefix from PostCSS and Webpack
-              loaders. Integrated Karma and Jasmine into new Webpack config by rebuilding config file for Karma
+              better development environment. Cross browser compatibility improvements using auto prefix from PostCSS and Webpack
+              loaders. Integrated Karma and Jasmine into new Webpack configuration by rebuilding configuration file for Karma
               from scratch`,
               `Team used an Agile/Lean methodology with heavy use of code reviews.
               Created high quality components for customer facing site`,
@@ -51,7 +51,7 @@ export class WorkContainerComponent implements OnInit {
           {
             title: 'First Rotation: Network Integration Team',
             description: [
-              `Overhauld a website from scratch using Angular 2/4 and created a PHP backend API to manipulate a
+              `Overhauled a website from scratch using Angular 2/4 and created a PHP backend API to manipulate a
               MySQL database. Created a custom stateless authentication system using signed JSON Web Tokens.`,
               `Followed Material Design guidelines and used Material 2 NPM package.
               Responsive layout through the use of Angular/Flex-Layout.
@@ -69,10 +69,10 @@ export class WorkContainerComponent implements OnInit {
         description: [
           `Gained a strong fundamental foundation in web development
           using Angular 2 to build reusable web components for web forms.
-          Use of Node.js to manipluate SQL data to fit in CouchDB.
+          Use of Node.js to manipulate SQL data to fit in CouchDB.
           Created reusable components for web forms using Semantic UI, and
           participated in code reviews.`,
-          `Maintained SharePoint manual for appication and designed it for web blog style pages from word documents.`
+          `Maintained SharePoint manual for application and designed it for web blog style pages from word documents.`
         ],
       }
     ];
