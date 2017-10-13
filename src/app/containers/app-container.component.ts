@@ -18,8 +18,8 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   pageTitle: Observable<{ title: string }>;
   buttonList: Array<ILink>;
   currentActiveButton: string;
-  drawerOpened = true;
-  drawerMode = 'side';
+  drawerOpened: boolean;
+  drawerMode: string;
   drawerToggleMedia = {
     xs: 'xs',
     sm: 'sm',
