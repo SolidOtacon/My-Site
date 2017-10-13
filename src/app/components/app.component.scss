@@ -13,8 +13,12 @@ mat-sidenav {
   flex: 1 1 auto;
 }
 
-.sidenav-container {
+.sidenav-container-desktop {
   height: calc(100% - 64px);
+}
+
+.sidenav-container-small {
+  min-height: 100%;
 }
 
 .block {
