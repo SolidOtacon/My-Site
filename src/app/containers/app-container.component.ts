@@ -1,5 +1,5 @@
 import { ILink } from './../models/link.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -14,7 +14,7 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
   templateUrl: './app-container.component.html',
   styleUrls: ['./app-container.component.css']
 })
-export class AppContainerComponent implements OnInit {
+export class AppContainerComponent implements OnInit, OnDestroy {
   pageTitle: Observable<{ title: string }>;
   buttonList: Array<ILink>;
   currentActiveButton: string;
@@ -30,12 +30,15 @@ export class AppContainerComponent implements OnInit {
   activeMediaQuery = '';
 
   constructor(
-    media: ObservableMedia,
+    private media: ObservableMedia,
     private router: Router,
     private store: Store<fromApp.AppState>,
     private title: Title
-  ) {
-    this.watcher = media.subscribe((change: MediaChange) => {
+  ) {}
+
+  ngOnInit() {
+    this.setInitalDrawerState();
+    this.watcher = this.media.subscribe((change: MediaChange) => {
       this.activeMediaQuery = change.mqAlias;
       if (this.drawerToggleMedia.hasOwnProperty(change.mqAlias)) {
         this.drawerOpened = false;
@@ -45,10 +48,6 @@ export class AppContainerComponent implements OnInit {
         this.drawerMode = 'side';
       }
     });
-    title.setTitle('Trent Matthias');
-  }
-
-  ngOnInit() {
     this.buttonList = [
       {
         name: 'About',
@@ -93,6 +92,24 @@ export class AppContainerComponent implements OnInit {
         }
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.watcher.unsubscribe();
+  }
+
+  setInitalDrawerState() {
+    if (
+      this.media.isActive(this.drawerToggleMedia.xs)
+      || this.media.isActive(this.drawerToggleMedia.sm)
+      || this.media.isActive(this.drawerToggleMedia.md)
+    ) {
+      this.drawerOpened = false;
+      this.drawerMode = 'over';
+    } else {
+      this.drawerOpened = true;
+      this.drawerMode = 'side';
+    }
   }
 
   setIsActive(val: string) {

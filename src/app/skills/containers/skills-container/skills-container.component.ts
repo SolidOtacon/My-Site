@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
@@ -7,7 +7,7 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
   templateUrl: './skills-container.component.html',
   styleUrls: ['./skills-container.component.css']
 })
-export class SkillsContainerComponent implements AfterViewInit {
+export class SkillsContainerComponent implements OnInit, OnDestroy {
 
   tiles = [
     {text: 'Angular', cols: 1, rows: 1, img: '/assets/logos/angular.svg'},
@@ -34,15 +34,19 @@ export class SkillsContainerComponent implements AfterViewInit {
 
   cols: number;
   rowHeight: string;
+  watcher: Subscription;
 
   constructor(private media: ObservableMedia) {
     this.updateGrid();
   }
 
-  ngAfterViewInit() {
-    // ObservableMedia does not fire on init so you have to manually update the grid first.
+  ngOnInit() {
     this.updateGrid();
-    this.media.subscribe(change => { this.updateGrid(); });
+    this.watcher = this.media.subscribe(change => { this.updateGrid(); });
+  }
+
+  ngOnDestroy() {
+    this.watcher.unsubscribe();
   }
 
   private updateGrid(): void {
