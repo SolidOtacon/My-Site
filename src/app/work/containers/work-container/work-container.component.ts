@@ -38,14 +38,14 @@ export class WorkContainerComponent implements OnInit {
               specifications and build beautiful layouts for every component.
               Followed Material Design specifications and used the Material-UI NPM library.
               Responsive design using Flexbox CSS to support mobile devices and different displays.
-              Application built using the flux design pattern with multiple stores`,
+              Application built using the flux design pattern with multiple stores.`,
               `Revamped the Webpack and Babel configuration for the main customer facing website, significantly reducing
               the loading times. Split code using CommonsChunkPlugin and added the webpack dev server to facilitate a
               better development environment. Cross browser compatibility improvements using auto prefix from PostCSS and Webpack
               loaders. Integrated Karma and Jasmine into new Webpack configuration by rebuilding configuration file for Karma
-              from scratch`,
+              from scratch.`,
               `Team used an Agile/Lean methodology with heavy use of code reviews.
-              Created high quality components for customer facing site`,
+              Created high quality components for customer facing site.`,
             ],
           },
           {
