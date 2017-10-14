@@ -36,9 +36,7 @@ export class SkillsContainerComponent implements OnInit, OnDestroy {
   rowHeight: string;
   watcher: Subscription;
 
-  constructor(private media: ObservableMedia) {
-    this.updateGrid();
-  }
+  constructor(private media: ObservableMedia) {}
 
   ngOnInit() {
     this.updateGrid();
