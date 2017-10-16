@@ -1,3 +1,4 @@
+import { SetMedia } from './../ngrx/media/media.actions';
 import { ILink } from './../models/link.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -6,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import * as fromApp from '../ngrx/app.reducers';
 import * as LayoutAction from '../ngrx/layout/layout.actions';
+import * as MediaAction from '../ngrx/media/media.actions';
 import { Subscription } from 'rxjs/Subscription';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
@@ -16,6 +18,7 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 })
 export class AppContainerComponent implements OnInit, OnDestroy {
   pageTitle: Observable<{ title: string }>;
+
   buttonList: Array<ILink>;
   currentActiveButton: string;
   drawerOpened: boolean;
@@ -27,7 +30,6 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   };
 
   watcher: Subscription;
-  activeMediaQuery = '';
 
   constructor(
     private media: ObservableMedia,
@@ -39,7 +41,7 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.setInitalDrawerState();
     this.watcher = this.media.subscribe((change: MediaChange) => {
-      this.activeMediaQuery = change.mqAlias;
+      this.store.dispatch(new MediaAction.SetMedia(change.mqAlias));
       if (this.drawerToggleMedia.hasOwnProperty(change.mqAlias)) {
         this.drawerOpened = false;
         this.drawerMode = 'over';

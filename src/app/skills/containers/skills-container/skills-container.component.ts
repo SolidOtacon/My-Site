@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../../ngrx/app.reducers';
 
 @Component({
   selector: 'app-skills-container',
@@ -34,22 +37,24 @@ export class SkillsContainerComponent implements OnInit, OnDestroy {
 
   cols: number;
   rowHeight: string;
-  watcher: Subscription;
+  activeMedia: Subscription;
 
-  constructor(private media: ObservableMedia) {}
+  constructor(
+    private media: ObservableMedia,
+    private store: Store<fromApp.AppState>
+  ) {}
 
   ngOnInit() {
-    this.updateGrid();
-    this.watcher = this.media.subscribe(change => { this.updateGrid(); });
+    this.activeMedia = this.store.select('media').subscribe(media => this.updateGrid(media));
   }
 
   ngOnDestroy() {
-    this.watcher.unsubscribe();
+    this.activeMedia.unsubscribe();
   }
 
-  private updateGrid(): void {
-    this.cols = (this.media.isActive('xs') ||
-    this.media.isActive('sm')) ? 3 : 5;
+  private updateGrid(media): void {
+    console.log(media.activeMedia);
+    this.cols = (this.mediaPoints.hasOwnProperty(media.activeMedia)) ? 3 : 5;
 
     this.rowHeight = '3:2';
   }
