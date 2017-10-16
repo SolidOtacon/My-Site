@@ -40,7 +40,7 @@ export class WorkContainerComponent implements OnInit {
               Responsive design using Flexbox CSS to support mobile devices and different displays.
               Application built using the flux design pattern with multiple stores.`,
               `Revamped the Webpack and Babel configuration for the main customer facing website, significantly reducing
-              the loading times. Split code using CommonsChunkPlugin and added the webpack dev server to facilitate a
+              the loading times. Split code using CommonsChunkPlugin and added the Webpack Dev Server to facilitate a
               better development environment. Cross browser compatibility improvements using auto prefix from PostCSS and Webpack
               loaders. Integrated Karma and Jasmine into new Webpack configuration by rebuilding configuration file for Karma
               from scratch.`,
@@ -54,7 +54,7 @@ export class WorkContainerComponent implements OnInit {
               `Overhauled a website from scratch using Angular 2/4 and created a PHP backend API to manipulate a
               MySQL database. Created a custom stateless authentication system using signed JSON Web Tokens.`,
               `Followed Material Design guidelines and used Material 2 NPM package.
-              Responsive layout through the use of Angular/Flex-Layout.
+              Responsive layout through the use of Angular Flex-Layout.
               State management through the use of RXJS and Subjects to communicate across components through services.`,
               `Implemented end to end testing using protractor. Application built using Angular CLI.`
             ],
