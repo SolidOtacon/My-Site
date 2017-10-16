@@ -8,7 +8,7 @@ import * as fromApp from '../../../ngrx/app.reducers';
 @Component({
   selector: 'app-skills-container',
   templateUrl: './skills-container.component.html',
-  styleUrls: ['./skills-container.component.css']
+  styleUrls: ['./skills-container.component.css'],
 })
 export class SkillsContainerComponent implements OnInit, OnDestroy {
 
@@ -53,7 +53,6 @@ export class SkillsContainerComponent implements OnInit, OnDestroy {
   }
 
   private updateGrid(media): void {
-    console.log(media.activeMedia);
     this.cols = (this.mediaPoints.hasOwnProperty(media.activeMedia)) ? 3 : 5;
 
     this.rowHeight = '3:2';

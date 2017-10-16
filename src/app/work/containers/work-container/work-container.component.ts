@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { WorkCard } from './../../models/work-card';
 
 @Component({
   selector: 'app-work-container',
   templateUrl: './work-container.component.html',
-  styleUrls: ['./work-container.component.css']
+  styleUrls: ['./work-container.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkContainerComponent implements OnInit {
 
