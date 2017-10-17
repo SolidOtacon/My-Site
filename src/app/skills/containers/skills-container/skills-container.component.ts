@@ -22,8 +22,9 @@ export class SkillsContainerComponent implements OnInit {
 
   ngOnInit() {
     this.openSource = [
-      {text: 'Angular', git: 'https://github.com/angular'},
+      {text: 'Angular', git: 'https://github.com/angular/angular'},
       {text: 'TypeScript', git: 'https://github.com/Microsoft/TypeScript'},
+      {text: 'Angular CLI', git: 'https://github.com/angular/angular-cli'},
       {text: 'React', git: 'https://github.com/facebook/react'},
       {text: 'Webpack', git: 'https://github.com/webpack/webpack'},
       {text: 'Webpack Dev Server', git: 'https://github.com/webpack/webpack-dev-server'},
