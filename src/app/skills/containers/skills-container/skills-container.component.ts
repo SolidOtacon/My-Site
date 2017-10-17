@@ -46,7 +46,7 @@ export class SkillsContainerComponent implements OnInit {
       {text: 'Neo4j'},
     ];
     this.other = [
-      {text: 'JWT'},
+      {text: 'JSON Web Tokens'},
       {text: 'Material Design'},
       {text: 'Responsive Design'},
       {text: 'Android Development'}
