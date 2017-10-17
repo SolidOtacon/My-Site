@@ -3,7 +3,7 @@
     <h3 matSubheader>Open Source</h3>
     <mat-divider></mat-divider>
     <mat-list-item *ngFor="let item of openSource">
-      <a *ngIf="item.git" href={{item.git}}>
+      <a target="_blank" *ngIf="item.git" href={{item.git}}>
         <mat-icon mat-list-icon>code</mat-icon>
       </a>
       <p>{{item.text}}</p>
@@ -12,31 +12,23 @@
   <mat-list fxLayout="column">
     <h3 matSubheader>Other Languages</h3>
     <mat-divider></mat-divider>
-    <mat-list-item *ngFor="let item of languages">
-      <a *ngIf="item.git" href={{item.git}}>
-        <mat-icon mat-list-icon>code</mat-icon>
-      </a>
+    <mat-list-item class="no-icon" *ngFor="let item of languages">
       <p>{{item.text}}</p>
     </mat-list-item>
   </mat-list>
   <mat-list fxLayout="column">
     <h3 matSubheader>Databases</h3>
     <mat-divider></mat-divider>
-    <mat-list-item *ngFor="let item of databases">
-      <a *ngIf="item.git" href={{item.git}}>
-        <mat-icon mat-list-icon>code</mat-icon>
-      </a>
+    <mat-list-item class="no-icon" *ngFor="let item of databases">
       <p>{{item.text}}</p>
     </mat-list-item>
   </mat-list>
   <mat-list fxLayout="column">
     <h3 matSubheader>Other</h3>
     <mat-divider></mat-divider>
-    <mat-list-item *ngFor="let item of other">
-      <a *ngIf="item.git" href={{item.git}}>
-        <mat-icon mat-list-icon>code</mat-icon>
-      </a>
+    <mat-list-item class="no-icon" *ngFor="let item of other">
       <p>{{item.text}}</p>
     </mat-list-item>
   </mat-list>
 </div>
+

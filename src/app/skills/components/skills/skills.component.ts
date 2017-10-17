@@ -12,6 +12,4 @@ export class SkillsComponent {
   @Input() languages: IListItem;
   @Input() databases: IListItem;
   @Input() other: IListItem;
-  @Input() cols: number;
-  @Input() rowHeight: string;
 }

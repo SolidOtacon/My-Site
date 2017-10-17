@@ -1,5 +1,5 @@
 import { IListItem } from './../../models/list-item.model';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
@@ -11,34 +11,25 @@ import * as fromApp from '../../../ngrx/app.reducers';
   templateUrl: './skills-container.component.html',
   styleUrls: ['./skills-container.component.css'],
 })
-export class SkillsContainerComponent implements OnInit, OnDestroy {
+export class SkillsContainerComponent implements OnInit {
 
   openSource: Array<IListItem>;
   languages: Array<IListItem>;
   databases: Array<IListItem>;
   other: Array<IListItem>;
 
-  mediaPoints = {
-    xs: 'xs',
-    sm: 'sm',
-  };
-
-  cols: number;
-  rowHeight: string;
-  activeMedia: Subscription;
-
-  constructor(
-    private media: ObservableMedia,
-    private store: Store<fromApp.AppState>
-  ) {}
+  constructor() {}
 
   ngOnInit() {
     this.openSource = [
       {text: 'Angular', git: 'https://github.com/angular'},
       {text: 'TypeScript', git: 'https://github.com/Microsoft/TypeScript'},
       {text: 'React', git: 'https://github.com/facebook/react'},
-      {text: 'Webpack', git: 'https://github.com/webpack'},
+      {text: 'Webpack', git: 'https://github.com/webpack/webpack'},
+      {text: 'Webpack Dev Server', git: 'https://github.com/webpack/webpack-dev-server'},
       {text: 'Babel', git: 'https://github.com/babel/babel'},
+      {text: 'Material 2', git: 'https://github.com/angular/material2'},
+      {text: 'Angular Flex-Layout', git: 'https://github.com/angular/flex-layout'},
       {text: 'ngrx', git: 'https://github.com/ngrx/platform'},
       {text: 'Node.js', git: 'https://github.com/nodejs/node'},
       {text: 'NPM', git: 'https://github.com/npm/npm'}
@@ -47,6 +38,7 @@ export class SkillsContainerComponent implements OnInit, OnDestroy {
       {text: 'C++'},
       {text: 'Java'},
       {text: 'PHP'},
+      {text: 'ES6'},
     ];
     this.databases = [
       {text: 'MySQL'},
@@ -54,19 +46,10 @@ export class SkillsContainerComponent implements OnInit, OnDestroy {
       {text: 'Neo4j'},
     ];
     this.other = [
-      {text: 'JWT'}
+      {text: 'JWT'},
+      {text: 'Material Design'},
+      {text: 'Responsive Design'},
+      {text: 'Android Development'}
     ];
-    this.activeMedia = this.store.select('media').subscribe(media => this.updateGrid(media));
   }
-
-  ngOnDestroy() {
-    this.activeMedia.unsubscribe();
-  }
-
-  private updateGrid(media): void {
-    this.cols = (this.mediaPoints.hasOwnProperty(media.activeMedia)) ? 3 : 5;
-
-    this.rowHeight = '3:2';
-  }
-
 }
