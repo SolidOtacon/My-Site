@@ -1,11 +1,11 @@
 import * as MediaActions from './media.actions';
 
 export interface State {
-  activeMedia: string;
+  media: string;
 }
 
 const initialState: State = {
-  activeMedia: ''
+  media: ''
 };
 
 
@@ -13,7 +13,7 @@ export function mediaReducer(state = initialState, action: MediaActions.MediaAct
   switch (action.type) {
     case MediaActions.SET_MEDIA:
       return {
-        activeMedia: action.payload
+        media: action.payload
       };
   }
   return state;
