@@ -8,7 +8,10 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillsComponent {
-  @Input() listItems: IListItem;
+  @Input() openSource: IListItem;
+  @Input() languages: IListItem;
+  @Input() databases: IListItem;
+  @Input() other: IListItem;
   @Input() cols: number;
   @Input() rowHeight: string;
 }

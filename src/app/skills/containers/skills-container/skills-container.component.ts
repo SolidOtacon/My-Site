@@ -15,6 +15,8 @@ export class SkillsContainerComponent implements OnInit, OnDestroy {
 
   openSource: Array<IListItem>;
   languages: Array<IListItem>;
+  databases: Array<IListItem>;
+  other: Array<IListItem>;
 
   mediaPoints = {
     xs: 'xs',
@@ -45,6 +47,14 @@ export class SkillsContainerComponent implements OnInit, OnDestroy {
       {text: 'C++'},
       {text: 'Java'},
       {text: 'PHP'},
+    ];
+    this.databases = [
+      {text: 'MySQL'},
+      {text: 'CouchDB'},
+      {text: 'Neo4j'},
+    ];
+    this.other = [
+      {text: 'JWT'}
     ];
     this.activeMedia = this.store.select('media').subscribe(media => this.updateGrid(media));
   }
