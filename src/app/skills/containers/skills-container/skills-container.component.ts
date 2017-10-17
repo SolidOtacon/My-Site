@@ -1,3 +1,4 @@
+import { IListItem } from './../../models/list-item.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
@@ -12,23 +13,8 @@ import * as fromApp from '../../../ngrx/app.reducers';
 })
 export class SkillsContainerComponent implements OnInit, OnDestroy {
 
-  tiles = [
-    {text: 'Angular', cols: 1, rows: 1, img: '/assets/logos/angular.svg'},
-    {text: 'TypeScript', cols: 1, rows: 1, img: '/assets/logos/typescript.svg'},
-    {text: 'React', cols: 1, rows: 1, img: '/assets/logos/react.svg'},
-    {text: 'C++', cols: 1, rows: 1, img: '/assets/logos/c++.svg'},
-    {text: 'Java', cols: 1, rows: 1, img: '/assets/logos/java.svg'},
-    {text: 'Webpack', cols: 1, rows: 1, img: '/assets/logos/webpack.svg'},
-    {text: 'Babel', cols: 1, rows: 1, img: '/assets/logos/babel.svg'},
-    {text: 'ngrx', cols: 1, rows: 1, img: '/assets/logos/ngrx.png'},
-    {text: 'Redux', cols: 1, rows: 1, img: '/assets/logos/redux.svg'},
-    {text: 'Node.js', cols: 1, rows: 1, img: '/assets/logos/Node.js.svg'},
-    {text: 'PHP', cols: 1, rows: 1, img: '/assets/logos/PHP.svg'},
-    {text: 'JWT', cols: 1, rows: 1, img: '/assets/logos/jwt.svg'},
-    {text: 'NPM', cols: 1, rows: 1, img: '/assets/logos/Npm.svg'},
-    {text: 'HTML5', cols: 1, rows: 1, img: '/assets/logos/HTML5.svg'},
-    {text: 'CSS3', cols: 1, rows: 1, img: '/assets/logos/CSS3.svg'},
-  ];
+  openSource: Array<IListItem>;
+  languages: Array<IListItem>;
 
   mediaPoints = {
     xs: 'xs',
@@ -45,6 +31,21 @@ export class SkillsContainerComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.openSource = [
+      {text: 'Angular', git: 'https://github.com/angular'},
+      {text: 'TypeScript', git: 'https://github.com/Microsoft/TypeScript'},
+      {text: 'React', git: 'https://github.com/facebook/react'},
+      {text: 'Webpack', git: 'https://github.com/webpack'},
+      {text: 'Babel', git: 'https://github.com/babel/babel'},
+      {text: 'ngrx', git: 'https://github.com/ngrx/platform'},
+      {text: 'Node.js', git: 'https://github.com/nodejs/node'},
+      {text: 'NPM', git: 'https://github.com/npm/npm'}
+    ];
+    this.languages = [
+      {text: 'C++'},
+      {text: 'Java'},
+      {text: 'PHP'},
+    ];
     this.activeMedia = this.store.select('media').subscribe(media => this.updateGrid(media));
   }
 

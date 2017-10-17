@@ -1,14 +1,14 @@
-import { ITile } from './../../models/tile.model';
+import { IListItem } from './../../models/list-item.model';
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css'],
+  styleUrls: ['./skills.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillsComponent {
-  @Input() tiles: ITile;
+  @Input() listItems: IListItem;
   @Input() cols: number;
   @Input() rowHeight: string;
 }
