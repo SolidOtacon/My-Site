@@ -21,11 +21,6 @@ export class AppContainerComponent implements OnInit, OnDestroy {
 
   buttonList: Array<ILink>;
   currentActiveButton: string;
-  drawerToggleMedia = {
-    xs: 'xs',
-    sm: 'sm',
-    md: 'md'
-  };
 
   watcher: Subscription;
 

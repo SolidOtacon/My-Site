@@ -1,3 +1,4 @@
+import { ObservableMedia } from '@angular/flex-layout';
 import { IListItem } from './../../models/list-item.model';
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
