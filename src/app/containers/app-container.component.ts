@@ -17,15 +17,10 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
   styleUrls: ['./app-container.component.css']
 })
 export class AppContainerComponent implements OnInit, OnDestroy {
-  // TODO: Implement 2 drawers one for mobile and one for desktop activate based off of media query.
   pageTitle: Observable<{ title: string }>;
-
-  transitioning: boolean;
 
   buttonList: Array<ILink>;
   currentActiveButton: string;
-  drawerOpened: boolean;
-  drawerMode: string;
   drawerToggleMedia = {
     xs: 'xs',
     sm: 'sm',
@@ -42,25 +37,9 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.transitioning = false;
-    this.setInitalDrawerState();
+    // this.setInitalDrawerState();
     this.watcher = this.media.subscribe((change: MediaChange) => {
       this.store.dispatch(new MediaAction.SetMedia(change.mqAlias));
-      if (this.drawerToggleMedia.hasOwnProperty(change.mqAlias)) {
-        console.log('changing to mobile');
-        this.drawerOpened = false;
-        this.drawerMode = 'over';
-      } else {
-        console.log('changing to desktop');
-        if (!this.transitioning) {
-          this.transitioning = true;
-          setTimeout(() => {
-            this.drawerOpened = true;
-            this.drawerMode = 'side';
-            this.transitioning = false;
-          }, 250);
-        }
-      }
     });
     this.buttonList = [
       {
@@ -110,20 +89,6 @@ export class AppContainerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.watcher.unsubscribe();
-  }
-
-  setInitalDrawerState() {
-    if (
-      this.media.isActive(this.drawerToggleMedia.xs)
-      || this.media.isActive(this.drawerToggleMedia.sm)
-      || this.media.isActive(this.drawerToggleMedia.md)
-    ) {
-      this.drawerOpened = false;
-      this.drawerMode = 'over';
-    } else {
-      this.drawerOpened = true;
-      this.drawerMode = 'side';
-    }
   }
 
   setIsActive(val: string) {

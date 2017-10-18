@@ -1,16 +1,16 @@
 <!-- Leave this one and if it on media query -->
-<div *ngIf="drawerMode === 'side'; then toolbar"></div>
+<div *ngIf="!media.isActive('xs') && !media.isActive('sm') && !media.isActive('md'); then toolbar"></div>
 <!-- class on media query -->
 <mat-sidenav-container
-  [class.sidenav-container-desktop]="nav.mode === 'side'"
-  [class.sidenav-container-small]="nav.mode === 'over'"
+  [class.sidenav-container-desktop]="!media.isActive('xs') && !media.isActive('sm') && !media.isActive('md')"
+  [class.sidenav-container-small]="media.isActive('xs') || media.isActive('sm') || media.isActive('md')"
 >
   <!-- Put this in mobile sidenav -->
-  <div *ngIf="drawerMode === 'over'; then toolbar"></div>
+  <div *ngIf="media.isActive('xs') || media.isActive('sm') || media.isActive('md'); then toolbar"></div>
   <!-- break this out into 2 components -->
-  <mat-sidenav #nav mode={{drawerMode}} opened={{drawerOpened}}>
+  <mat-sidenav #nav mode="over" opened="false">
     <mat-nav-list>
-      <span *ngFor="let link of buttonList" (click)="drawerMode === 'over' ? nav.toggle() : null">
+      <span *ngFor="let link of buttonList" (click)="nav.toggle()">
         <a
           mat-list-item mat-icon matListIcon
           routerLink={{link.link}}
@@ -33,7 +33,7 @@
 
 <ng-template #toolbar>
   <mat-toolbar class="toolbar">
-    <button mat-icon-button *ngIf="drawerMode === 'over'" (click)="nav.toggle()">
+    <button mat-icon-button (click)="nav.toggle()">
       <mat-icon class="icon" aria-label="Example icon-button with a heart icon">menu</mat-icon>
     </button>
     <span class="text" [class.titleTextMargin]="drawerMode === 'over'">{{(title | async).title}}</span>
