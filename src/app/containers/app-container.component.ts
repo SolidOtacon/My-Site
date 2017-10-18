@@ -58,7 +58,7 @@ export class AppContainerComponent implements OnInit, OnDestroy {
             this.drawerOpened = true;
             this.drawerMode = 'side';
             this.transitioning = false;
-          }, 100);
+          }, 250);
         }
       }
     });
