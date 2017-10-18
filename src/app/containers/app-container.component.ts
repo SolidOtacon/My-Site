@@ -20,6 +20,8 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   // TODO: Implement 2 drawers one for mobile and one for desktop activate based off of media query.
   pageTitle: Observable<{ title: string }>;
 
+  transitioning: boolean;
+
   buttonList: Array<ILink>;
   currentActiveButton: string;
   drawerOpened: boolean;
@@ -40,15 +42,24 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.transitioning = false;
     this.setInitalDrawerState();
     this.watcher = this.media.subscribe((change: MediaChange) => {
       this.store.dispatch(new MediaAction.SetMedia(change.mqAlias));
       if (this.drawerToggleMedia.hasOwnProperty(change.mqAlias)) {
+        console.log('changing to mobile');
         this.drawerOpened = false;
         this.drawerMode = 'over';
       } else {
-        this.drawerOpened = true;
-        this.drawerMode = 'side';
+        console.log('changing to desktop');
+        if (!this.transitioning) {
+          this.transitioning = true;
+          setTimeout(() => {
+            this.drawerOpened = true;
+            this.drawerMode = 'side';
+            this.transitioning = false;
+          }, 100);
+        }
       }
     });
     this.buttonList = [
