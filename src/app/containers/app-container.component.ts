@@ -17,6 +17,7 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
   styleUrls: ['./app-container.component.css']
 })
 export class AppContainerComponent implements OnInit, OnDestroy {
+  // TODO: Implement 2 drawers one for mobile and one for desktop activate based off of media query.
   pageTitle: Observable<{ title: string }>;
 
   buttonList: Array<ILink>;
