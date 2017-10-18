@@ -22,7 +22,7 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   buttonList: Array<ILink>;
   currentActiveButton: string;
 
-  watcher: Subscription;
+  // watcher: Subscription;
 
   constructor(
     private media: ObservableMedia,
@@ -33,9 +33,9 @@ export class AppContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // this.setInitalDrawerState();
-    this.watcher = this.media.subscribe((change: MediaChange) => {
-      this.store.dispatch(new MediaAction.SetMedia(change.mqAlias));
-    });
+    // this.watcher = this.media.subscribe((change: MediaChange) => {
+    //   this.store.dispatch(new MediaAction.SetMedia(change.mqAlias));
+    // });
     this.buttonList = [
       {
         name: 'About',
@@ -83,7 +83,7 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.watcher.unsubscribe();
+    // this.watcher.unsubscribe();
   }
 
   setIsActive(val: string) {

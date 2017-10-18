@@ -5,7 +5,7 @@
     <h3 matSubheader>Open Source</h3>
     <mat-divider></mat-divider>
     <mat-list-item *ngFor="let item of openSource">
-      <a target="_blank" *ngIf="item.git" href={{item.git}}>
+      <a target="_blank" rel="noopener" *ngIf="item.git" href={{item.git}}>
         <mat-icon mat-list-icon>code</mat-icon>
       </a>
       <p>{{item.text}}</p>

@@ -34,18 +34,18 @@
 <ng-template #toolbar>
   <mat-toolbar class="toolbar">
     <button mat-icon-button (click)="nav.toggle()">
-      <mat-icon class="icon" aria-label="Example icon-button with a heart icon">menu</mat-icon>
+      <mat-icon class="icon" aria-label="Sidenav Toggle">menu</mat-icon>
     </button>
-    <span class="text" [class.titleTextMargin]="drawerMode === 'over'">{{(title | async).title}}</span>
+    <span class="text" [class.titleTextMargin]="media.isActive('xs') || media.isActive('sm') || media.isActive('md')">{{(title | async).title}}</span>
     <span class="fill-remaining-space"></span>
     <span>
       <span class="space block">
-        <a href="https://www.linkedin.com/in/trent-matthias-277627123" target="_blank">
+        <a href="https://www.linkedin.com/in/trent-matthias-277627123" target="_blank" rel="noopener">
           <img src="/assets/icons/In.png" alt="LinkedIn Profile">
         </a>
       </span>
       <span class="block">
-        <a href="https://github.com/SolidOtacon/My-Site" target="_blank">
+        <a href="https://github.com/SolidOtacon/My-Site" target="_blank" rel="noopener">
           <img src="/assets/icons/GitHub.png" alt="GitHub Source Code">
         </a>
       </span>
