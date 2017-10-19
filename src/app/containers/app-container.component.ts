@@ -1,7 +1,6 @@
 import { SetMedia } from './../ngrx/media/media.actions';
 import { ILink } from './../models/link.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -28,7 +27,6 @@ export class AppContainerComponent implements OnInit, OnDestroy {
     private media: ObservableMedia,
     private router: Router,
     private store: Store<fromApp.AppState>,
-    private title: Title
   ) {}
 
   ngOnInit() {
