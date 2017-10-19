@@ -1,7 +1,7 @@
 <div class="container"
   fxLayout="row" fxLayout.xs="column" fxLayoutAlign.lg="center" fxLayoutAlign.xl="center"
 >
-  <mat-list>
+  <mat-list dense>
     <h3 matSubheader>Open Source</h3>
     <mat-divider></mat-divider>
     <mat-list-item *ngFor="let item of openSource">
@@ -11,21 +11,21 @@
       <p>{{item.text}}</p>
     </mat-list-item>
   </mat-list>
-  <mat-list>
+  <mat-list dense>
     <h3 matSubheader>Other Languages</h3>
     <mat-divider></mat-divider>
     <mat-list-item class="no-icon" *ngFor="let item of languages">
       <p>{{item.text}}</p>
     </mat-list-item>
   </mat-list>
-  <mat-list>
+  <mat-list dense>
     <h3 matSubheader>Databases</h3>
     <mat-divider></mat-divider>
     <mat-list-item class="no-icon" *ngFor="let item of databases">
       <p>{{item.text}}</p>
     </mat-list-item>
   </mat-list>
-  <mat-list>
+  <mat-list dense>
     <h3 matSubheader>Other</h3>
     <mat-divider></mat-divider>
     <mat-list-item class="no-icon" *ngFor="let item of other">

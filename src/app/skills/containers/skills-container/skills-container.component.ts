@@ -30,7 +30,10 @@ export class SkillsContainerComponent implements OnInit {
       {text: 'Webpack Dev Server', git: 'https://github.com/webpack/webpack-dev-server'},
       {text: 'Babel', git: 'https://github.com/babel/babel'},
       {text: 'Material 2', git: 'https://github.com/angular/material2'},
+      {text: 'Material-UI', git: 'https://github.com/callemall/material-ui'},
       {text: 'Angular Flex-Layout', git: 'https://github.com/angular/flex-layout'},
+      {text: 'React-Leaflet', git: 'https://github.com/PaulLeCam/react-leaflet'},
+      {text: 'React-Motion', git: 'https://github.com/chenglou/react-motion'},
       {text: 'ngrx', git: 'https://github.com/ngrx/platform'},
       {text: 'Node.js', git: 'https://github.com/nodejs/node'},
       {text: 'NPM', git: 'https://github.com/npm/npm'}
