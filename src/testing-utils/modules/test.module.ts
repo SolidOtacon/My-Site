@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { environment } from '../../environments/environment';
 import { AppRoutingModule } from '../../app/app-routing.module';
@@ -18,7 +17,6 @@ import { reducers } from '../../app/ngrx/app.reducers';
     BrowserAnimationsModule,
     SharedModule,
     StoreModule.forRoot(reducers),
-    StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
 })

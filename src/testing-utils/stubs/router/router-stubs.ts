@@ -43,19 +43,19 @@ export class MockRouterContact {
   });
 }
 
-@Directive({
-  selector: '[routerLink]',
-  host: {
-    '(click)': 'onClick()'
-  }
-})
-export class RouterLinkStubDirective {
+// @Directive({
+//   selector: '[routerLink]',
+//   host: {
+//     '(click)': 'onClick()'
+//   }
+// })
+// export class RouterLinkStubDirective {
 
-  @Input('routerLink') linkParams: any;
-  navigatedTo: any = null;
+//   @Input('routerLink') linkParams: any;
+//   navigatedTo: any = null;
 
-  onClick() {
-    this.navigatedTo = this.linkParams;
-  }
+//   onClick() {
+//     this.navigatedTo = this.linkParams;
+//   }
 
-}
+// }

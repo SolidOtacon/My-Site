@@ -16,7 +16,7 @@ import { reducers } from './ngrx/app.reducers';
 @NgModule({
   declarations: [
     AppContainerComponent,
-    AppComponent
+    AppComponent,
   ],
   imports: [
     CoreModule,

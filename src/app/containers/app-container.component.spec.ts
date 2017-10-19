@@ -1,4 +1,5 @@
-import { MockRouterAbout, RouterLinkStubDirective } from './../../testing-utils/stubs/router/router-stubs';
+import { MockRouterAbout } from './../../testing-utils/stubs/router/router-stubs';
+import { MockAppDirective } from './../../testing-utils/mock-components/mock-app/mock-app.directive';
 import { TestModule } from './../../testing-utils/modules/test.module';
 import { SharedModule } from './../shared/shared.module';
 import { AppContainerComponent } from './app-container.component';
@@ -21,36 +22,24 @@ import { Subscription } from 'rxjs/Subscription';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
 describe('AppContainerComponent', () => {
-  let fixture;
-  let comp;
-  let linkDes;
-  let links;
+  let fixture: ComponentFixture<AppContainerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         TestModule
       ],
       declarations: [
         AppContainerComponent,
-        AppComponent,
-        RouterLinkStubDirective
+        MockAppDirective
       ],
       providers: [
         { provide: Router, useClass: MockRouterAbout }
       ]
-    }).compileComponents()
-    .then(() => {
-      fixture = TestBed.createComponent(AppContainerComponent);
-      comp = fixture.componentInstance;
     });
-
-    beforeEach(() => {
-      fixture.detectChanges();
-      linkDes = fixture.debugElement.queryAll(By.directive(RouterLinkStubDirective));
-      links = linkDes.map(de => de.injector.get(RouterLinkStubDirective) as RouterLinkStubDirective);
-    });
-  }));
+    fixture = TestBed.createComponent(AppContainerComponent);
+    fixture.autoDetectChanges();
+  });
 
   it('should create the app', async(() => {
     const app = fixture.debugElement.componentInstance;
