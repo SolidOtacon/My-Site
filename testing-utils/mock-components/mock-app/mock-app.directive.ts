@@ -1,4 +1,4 @@
-import { ILink } from './../../../app/models/link.model';
+import { ILink } from './../../../src/app/models/link.model';
 import { Directive, Input } from '@angular/core';
 
 @Directive({

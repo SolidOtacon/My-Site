@@ -1,6 +1,6 @@
-import { MockRouterAbout } from './../../testing-utils/stubs/router/router-stubs';
-import { MockAppDirective } from './../../testing-utils/mock-components/mock-app/mock-app.directive';
-import { TestModule } from './../../testing-utils/modules/test.module';
+import { MockRouterAbout } from '../../../testing-utils/stubs/router/router-stubs';
+import { MockAppDirective } from '../../../testing-utils/mock-components/mock-app/mock-app.directive';
+import { TestModule } from '../../../testing-utils/modules/test.module';
 import { SharedModule } from './../shared/shared.module';
 import { AppContainerComponent } from './app-container.component';
 import { AppComponent } from '../components/app.component';
