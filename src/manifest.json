@@ -2,5 +2,10 @@
   "name": "Trent Matthiasl",
   "short_name": "TM",
   "display": "standalone",
-  "start_url": "./?utm_source=web_app_manifest"
+  "start_url": "./?utm_source=web_app_manifest",
+  "background_color": "#fafafa",
+  "description": "An app about all things Trent!",
+  "lang": "en-US",
+  "orientation": "any",
+  "theme_color": "#0277bd"
 }
