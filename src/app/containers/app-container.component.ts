@@ -23,6 +23,7 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   currentActiveButton: string;
 
   watcher: Subscription;
+  routerSub: Subscription;
 
   constructor(
     private media: ObservableMedia,
@@ -71,7 +72,7 @@ export class AppContainerComponent implements OnInit, OnDestroy {
     this.currentActiveButton = '';
     this.pageTitle = this.store.select('title');
 
-    this.router.events.subscribe((val) => {
+    this.routerSub = this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         if (val.url !== '/') {
           this.setIsActive(val.url);
@@ -83,7 +84,8 @@ export class AppContainerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // this.watcher.unsubscribe();
+    this.watcher.unsubscribe();
+    this.routerSub.unsubscribe();
   }
 
   setIsActive(val: string) {
