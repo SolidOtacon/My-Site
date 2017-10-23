@@ -17,6 +17,7 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 })
 export class AppContainerComponent implements OnInit, OnDestroy {
   pageTitle: Observable<{ title: string }>;
+  isMobileView: boolean;
 
   buttonList: Array<ILink>;
   currentActiveButton: string;
