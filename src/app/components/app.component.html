@@ -1,5 +1,8 @@
 <div *ngIf="!isMobileView; then toolbar"></div>
-<mat-sidenav-container class="sidenav-container-desktop">
+<mat-sidenav-container
+  [class.sidenav-container-desktop]="!isMobileView"
+  [class.sidenav-container-small]="isMobileView"
+>
   <div *ngIf="isMobileView; then toolbar"></div>
   <mat-sidenav fixedInViewport="{{isMobileView}}" #nav mode="{{isMobileView ? 'over' : 'side'}}" opened="{{!isMobileView}}" disableClose="{{!isMobileView}}">
     <mat-nav-list>
