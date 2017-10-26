@@ -122,4 +122,80 @@ describe('AppContainerComponent', () => {
     });
   }));
 
+  it('should set education button to be active, and all others to false', async(() => {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        if (val.url !== '/') {
+          app.setIsActive(val.url);
+        } else {
+          app.setIsActive('/about');
+        }
+      }
+    });
+    router.navigate(['education']).then(() => {
+      expect(app.buttonList[0].active).toBe(false);
+      expect(app.buttonList[1].active).toBe(true);
+      expect(app.buttonList[2].active).toBe(false);
+      expect(app.buttonList[3].active).toBe(false);
+      expect(app.buttonList[4].active).toBe(false);
+    });
+  }));
+
+  it('should set work button to be active, and all others to false', async(() => {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        if (val.url !== '/') {
+          app.setIsActive(val.url);
+        } else {
+          app.setIsActive('/about');
+        }
+      }
+    });
+    router.navigate(['work']).then(() => {
+      expect(app.buttonList[0].active).toBe(false);
+      expect(app.buttonList[1].active).toBe(false);
+      expect(app.buttonList[2].active).toBe(true);
+      expect(app.buttonList[3].active).toBe(false);
+      expect(app.buttonList[4].active).toBe(false);
+    });
+  }));
+
+  it('should set skills button to be active, and all others to false', async(() => {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        if (val.url !== '/') {
+          app.setIsActive(val.url);
+        } else {
+          app.setIsActive('/about');
+        }
+      }
+    });
+    router.navigate(['skills']).then(() => {
+      expect(app.buttonList[0].active).toBe(false);
+      expect(app.buttonList[1].active).toBe(false);
+      expect(app.buttonList[2].active).toBe(false);
+      expect(app.buttonList[3].active).toBe(true);
+      expect(app.buttonList[4].active).toBe(false);
+    });
+  }));
+
+  it('should set contact button to be active, and all others to false', async(() => {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        if (val.url !== '/') {
+          app.setIsActive(val.url);
+        } else {
+          app.setIsActive('/about');
+        }
+      }
+    });
+    router.navigate(['contact']).then(() => {
+      expect(app.buttonList[0].active).toBe(false);
+      expect(app.buttonList[1].active).toBe(false);
+      expect(app.buttonList[2].active).toBe(false);
+      expect(app.buttonList[3].active).toBe(false);
+      expect(app.buttonList[4].active).toBe(true);
+    });
+  }));
+
 });
