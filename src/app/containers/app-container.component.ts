@@ -73,13 +73,7 @@ export class AppContainerComponent implements OnInit, OnDestroy {
     this.pageTitle = this.store.select('title');
 
     this.routerSub = this.router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {
-        if (val.url !== '/') {
-          this.setIsActive(val.url);
-        } else {
-          this.setIsActive('/about');
-        }
-      }
+      this.setActiveButton(val);
     });
   }
 
@@ -88,18 +82,28 @@ export class AppContainerComponent implements OnInit, OnDestroy {
     this.routerSub.unsubscribe();
   }
 
-  setIsActive(val: string) {
-    for (const button of this.buttonList) {
-      if (this.currentActiveButton === button.name) {
-        button.active = false;
-      }
+  setActiveButton(val: any) {
+    const setIsActive = (url) => {
+      for (const button of this.buttonList) {
+        if (this.currentActiveButton === button.name) {
+          button.active = false;
+        }
 
-      if (button.link === val) {
-        button.active = true;
-        this.currentActiveButton = button.name;
-        this.store.dispatch(new LayoutAction.SetPageTitle(button.name));
+        if (button.link === url) {
+          button.active = true;
+          this.currentActiveButton = button.name;
+          this.store.dispatch(new LayoutAction.SetPageTitle(button.name));
+        } else {
+          button.active = false;
+        }
+      }
+    };
+
+    if (val instanceof NavigationEnd) {
+      if (val.urlAfterRedirects !== '/') {
+        setIsActive(val.urlAfterRedirects);
       } else {
-        button.active = false;
+        setIsActive('/about');
       }
     }
   }

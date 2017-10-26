@@ -105,13 +105,7 @@ describe('AppContainerComponent', () => {
 
   it('should set about button to be active, and all others to false', async(() => {
     router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {
-        if (val.url !== '/') {
-          app.setIsActive(val.url);
-        } else {
-          app.setIsActive('/about');
-        }
-      }
+      app.setActiveButton(val);
     });
     router.navigate(['about']).then(() => {
       expect(app.buttonList[0].active).toBe(true);
@@ -122,15 +116,22 @@ describe('AppContainerComponent', () => {
     });
   }));
 
+  it('should set about button to be active, and all others to false with random input', async(() => {
+    router.events.subscribe((val) => {
+      app.setActiveButton(val);
+    });
+    router.navigate(['bjkjnklmklhbhjjk']).then(() => {
+      expect(app.buttonList[0].active).toBe(true);
+      expect(app.buttonList[1].active).toBe(false);
+      expect(app.buttonList[2].active).toBe(false);
+      expect(app.buttonList[3].active).toBe(false);
+      expect(app.buttonList[4].active).toBe(false);
+    });
+  }));
+
   it('should set education button to be active, and all others to false', async(() => {
     router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {
-        if (val.url !== '/') {
-          app.setIsActive(val.url);
-        } else {
-          app.setIsActive('/about');
-        }
-      }
+      app.setActiveButton(val);
     });
     router.navigate(['education']).then(() => {
       expect(app.buttonList[0].active).toBe(false);
@@ -143,13 +144,7 @@ describe('AppContainerComponent', () => {
 
   it('should set work button to be active, and all others to false', async(() => {
     router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {
-        if (val.url !== '/') {
-          app.setIsActive(val.url);
-        } else {
-          app.setIsActive('/about');
-        }
-      }
+      app.setActiveButton(val);
     });
     router.navigate(['work']).then(() => {
       expect(app.buttonList[0].active).toBe(false);
@@ -162,13 +157,7 @@ describe('AppContainerComponent', () => {
 
   it('should set skills button to be active, and all others to false', async(() => {
     router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {
-        if (val.url !== '/') {
-          app.setIsActive(val.url);
-        } else {
-          app.setIsActive('/about');
-        }
-      }
+      app.setActiveButton(val);
     });
     router.navigate(['skills']).then(() => {
       expect(app.buttonList[0].active).toBe(false);
@@ -181,13 +170,7 @@ describe('AppContainerComponent', () => {
 
   it('should set contact button to be active, and all others to false', async(() => {
     router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {
-        if (val.url !== '/') {
-          app.setIsActive(val.url);
-        } else {
-          app.setIsActive('/about');
-        }
-      }
+      app.setActiveButton(val);
     });
     router.navigate(['contact']).then(() => {
       expect(app.buttonList[0].active).toBe(false);
