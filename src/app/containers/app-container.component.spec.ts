@@ -1,6 +1,5 @@
 import { StoreModule, Store } from '@ngrx/store';
 import { State } from './../ngrx/layout/layout.reducers';
-import { AppState } from './../ngrx/app.reducers';
 import { Observable } from 'rxjs/Observable';
 import { SimpleComponent } from '../../../testing-utils/mock-components/simple/simple.component';
 import { TestModule } from '../../../testing-utils/modules/test.module';
@@ -64,7 +63,7 @@ describe('AppContainerComponent', () => {
   it('should set the title to About', async(() => {
     store.dispatch(new LayoutAction.SetPageTitle('About'));
     let testTitle: string;
-    app.pageTitle.subscribe((title: any) => testTitle = title.title);
+    app.pageTitle.subscribe((state: State) => testTitle = state.title);
     expect(testTitle).toBe('About');
   }));
 
