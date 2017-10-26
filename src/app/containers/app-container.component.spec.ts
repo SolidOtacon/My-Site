@@ -1,48 +1,126 @@
-import { MockRouterAbout } from '../../../testing-utils/stubs/router/router-stubs';
-import { MockAppDirective } from '../../../testing-utils/mock-components/mock-app/mock-app.directive';
-import { TestModule } from '../../../testing-utils/modules/test.module';
-import { SharedModule } from './../shared/shared.module';
-import { AppContainerComponent } from './app-container.component';
-import { AppComponent } from '../components/app.component';
-import { TestBed, ComponentFixture, async } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { SetMedia } from './../ngrx/media/media.actions';
-import { ILink } from './../models/link.model';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Router, NavigationEnd } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { StoreModule, Store } from '@ngrx/store';
+import { State } from './../ngrx/layout/layout.reducers';
+import { AppState } from './../ngrx/app.reducers';
 import { Observable } from 'rxjs/Observable';
+import { SimpleComponent } from '../../../testing-utils/mock-components/simple/simple.component';
+import { TestModule } from '../../../testing-utils/modules/test.module';
+import { AppContainerComponent } from './app-container.component';
+import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Router, Routes, NavigationEnd } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Location } from '@angular/common';
 import * as fromApp from '../ngrx/app.reducers';
 import * as LayoutAction from '../ngrx/layout/layout.actions';
-import * as MediaAction from '../ngrx/media/media.actions';
-import { Subscription } from 'rxjs/Subscription';
-import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+
 
 describe('AppContainerComponent', () => {
+
+  const routes: Routes = [
+    { path: 'education', component: SimpleComponent },
+    { path: 'contact', component: SimpleComponent },
+    { path: 'work', component: SimpleComponent },
+    { path: 'skills', component: SimpleComponent },
+    { path: 'about', component: SimpleComponent },
+    { path: '**', redirectTo: 'about', pathMatch: 'full' },
+  ];
   let fixture: ComponentFixture<AppContainerComponent>;
+  let app: any;
+  let router: Router;
+  let location: Location;
+  let store: Store<fromApp.AppState>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestModule
+        TestModule,
+        StoreModule.forRoot(fromApp.reducers),
+        RouterTestingModule.withRoutes(routes)
       ],
       declarations: [
-        AppContainerComponent,
-        MockAppDirective
+        AppContainerComponent
       ],
-      providers: [
-        { provide: Router, useClass: MockRouterAbout }
-      ]
+      schemas: [ NO_ERRORS_SCHEMA ]
     });
+    router = TestBed.get(Router);
+    location = TestBed.get(Location);
+    store = TestBed.get(Store);
+
     fixture = TestBed.createComponent(AppContainerComponent);
     fixture.autoDetectChanges();
+    app = fixture.componentInstance;
+    router.initialNavigation();
   });
 
   it('should create the app', async(() => {
-    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
+
+  it('should have a defined store', async(() => {
+    expect(store).toBeDefined();
+  }));
+
+  it('should set the title to About', async(() => {
+    store.dispatch(new LayoutAction.SetPageTitle('About'));
+    let testTitle: string;
+    app.pageTitle.subscribe((title: any) => testTitle = title.title);
+    expect(testTitle).toBe('About');
+  }));
+
+  it('should redirect to /about', async(() => {
+    router.navigate(['']).then(() => {
+      expect(location.path()).toBe('/about');
+    });
+  }));
+
+  it('should route to /contact', async(() => {
+    router.navigate(['contact']).then(() => {
+      expect(location.path()).toBe('/contact');
+    });
+  }));
+
+  it('should route to /education', async(() => {
+    router.navigate(['education']).then(() => {
+      expect(location.path()).toBe('/education');
+    });
+  }));
+
+  it('should route to /about', async(() => {
+    router.navigate(['about']).then(() => {
+      expect(location.path()).toBe('/about');
+    });
+  }));
+
+  it('should route to /skills', async(() => {
+    router.navigate(['skills']).then(() => {
+      expect(location.path()).toBe('/skills');
+    });
+  }));
+
+  it('should route to /work', async(() => {
+    router.navigate(['work']).then(() => {
+      expect(location.path()).toBe('/work');
+    });
+  }));
+
+  it('should set about button to be active, and all others to false', async(() => {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        if (val.url !== '/') {
+          app.setIsActive(val.url);
+        } else {
+          app.setIsActive('/about');
+        }
+      }
+    });
+    router.navigate(['about']).then(() => {
+      expect(app.buttonList[0].active).toBe(true);
+      expect(app.buttonList[1].active).toBe(false);
+      expect(app.buttonList[2].active).toBe(false);
+      expect(app.buttonList[3].active).toBe(false);
+      expect(app.buttonList[4].active).toBe(false);
+    });
+  }));
+
 });
