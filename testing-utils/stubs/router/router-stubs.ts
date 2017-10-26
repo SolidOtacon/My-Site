@@ -1,5 +1,6 @@
+import { SimpleComponent } from '../../mock-components/simple/simple.component';
 import { Observable } from 'rxjs/Observable';
-import { NavigationEnd } from '@angular/router';
+import { NavigationEnd, Routes } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Directive, Input } from '@angular/core';
 
@@ -10,6 +11,15 @@ export class MockRouterAbout {
     obs.complete();
   });
 }
+
+export const routes: Routes = [
+    { path: 'education', component: SimpleComponent },
+    { path: 'contact', component: SimpleComponent },
+    { path: 'work', component: SimpleComponent },
+    { path: 'skills', component: SimpleComponent },
+    { path: 'about', component: SimpleComponent },
+    { path: '**', redirectTo: 'about', pathMatch: 'full' },
+  ];
 
 export class ActivatedRouteStub {
 

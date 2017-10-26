@@ -1,3 +1,4 @@
+import { routes } from './../../../testing-utils/stubs/router/router-stubs';
 import { StoreModule, Store } from '@ngrx/store';
 import { State } from './../ngrx/layout/layout.reducers';
 import { Observable } from 'rxjs/Observable';
@@ -15,15 +16,6 @@ import * as LayoutAction from '../ngrx/layout/layout.actions';
 
 
 describe('AppContainerComponent', () => {
-
-  const routes: Routes = [
-    { path: 'education', component: SimpleComponent },
-    { path: 'contact', component: SimpleComponent },
-    { path: 'work', component: SimpleComponent },
-    { path: 'skills', component: SimpleComponent },
-    { path: 'about', component: SimpleComponent },
-    { path: '**', redirectTo: 'about', pathMatch: 'full' },
-  ];
   let fixture: ComponentFixture<AppContainerComponent>;
   let app: any;
   let router: Router;
