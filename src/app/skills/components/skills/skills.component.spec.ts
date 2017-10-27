@@ -1,25 +1,29 @@
-// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestModule } from './../../../../../testing-utils/modules/test.module';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-// import { SkillsComponent } from './skills.component';
+import { SkillsComponent } from './skills.component';
 
-// describe('SkillsComponent', () => {
-//   let component: SkillsComponent;
-//   let fixture: ComponentFixture<SkillsComponent>;
+describe('SkillsComponent', () => {
+  let component: SkillsComponent;
+  let fixture: ComponentFixture<SkillsComponent>;
 
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ SkillsComponent ]
-//     })
-//     .compileComponents();
-//   }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [ TestModule ],
+      declarations: [ SkillsComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
+    })
+    .compileComponents();
+  }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(SkillsComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SkillsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

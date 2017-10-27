@@ -44,6 +44,7 @@ describe('AppComponent', () => {
 
   it('should create the app', async(() => {
     expect(wrapper).toBeTruthy();
+    expect(app).toBeTruthy();
   }));
 
   it('should set the title to random text', async(() => {
@@ -56,6 +57,24 @@ describe('AppComponent', () => {
     fixture.whenStable().then(() => {
       fixture.detectChanges();
       expect(app.title).toBe(testTitleName);
+    });
+  }));
+
+  it('should set mobile view to true', async(() => {
+    wrapper.isMobileView = true;
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(app.isMobileView).toBe(true);
+    });
+  }));
+
+  it('should set button list', async(() => {
+    wrapper.mockButtonList[0].name = 'test';
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(app.buttonList[0].name).toBe('test');
     });
   }));
 
