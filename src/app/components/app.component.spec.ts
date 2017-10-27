@@ -45,7 +45,7 @@ describe('AppComponent', () => {
 
   it('should create the component with title set to hi', async(() => {
     wrapper.titleSource.next('hi');
-    wrapper.titleSource.subscribe((value) => {
+    wrapper.titleSource.subscribe(() => {
       expect(app.title).toBe('hi');
     });
   }));
