@@ -5,10 +5,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 3000",
-    "build": "ng build --prod",
     "test": "ng test --sourcemaps=false",
+    "build": "ng build --prod",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "preprod": "ng test --single-run --sourcemaps=false",
+    "prod": "ng build --prod",
+    "postprod": "firebase login && firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +35,7 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.1",
     "roboto-fontface": "^0.8.0",
-    "rxjs": "^5.5.1",
+    "rxjs": "^5.5.2",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.18"
   },

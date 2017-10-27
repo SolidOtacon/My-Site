@@ -10,7 +10,7 @@
         <a
           mat-list-item mat-icon matListIcon
           routerLink={{link.link}}
-          [attr.cdk-focus-region-start]="link.active ? '' : null"
+          [attr.cdk-focus-initial]="link.active ? '' : null"
           [class.mat-list-item-focus]="link.active"
         >
           <mat-icon class="space" [class.active]="link.active" [class.notActive]="!link.active">{{link.icon}}</mat-icon>
