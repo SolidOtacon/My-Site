@@ -17,7 +17,7 @@ import * as LayoutAction from '../ngrx/layout/layout.actions';
 
 describe('AppContainerComponent', () => {
   let fixture: ComponentFixture<AppContainerComponent>;
-  let app: any;
+  let app: AppContainerComponent;
   let router: Router;
   let location: Location;
   let store: Store<fromApp.AppState>;
