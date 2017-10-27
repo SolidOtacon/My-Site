@@ -90,10 +90,6 @@ class TestWrapperComponent {
       icon: 'chat'
     },
   ];
-  // titleSource = Observable.create(observer => {
-  //   observer.onNext('test');
-  //   observer.onCompleted();
-  // });
 
   titleSource = new Subject();
 
