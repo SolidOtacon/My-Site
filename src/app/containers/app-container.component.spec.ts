@@ -108,7 +108,7 @@ describe('AppContainerComponent', () => {
     });
   }));
 
-  it('should set about button to be active, and all others to false with random input', async(() => {
+  it('should set about button to be active, and all others to false on random url redirect', async(() => {
     router.events.subscribe((val) => {
       app.setActiveButton(val);
     });
