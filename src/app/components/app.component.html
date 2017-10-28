@@ -8,13 +8,14 @@
     <mat-nav-list>
       <span *ngFor="let link of buttonList" (click)="onLinkClick()">
         <a
+          id={{link.name}}
           mat-list-item mat-icon matListIcon
           routerLink={{link.link}}
           [attr.cdk-focus-initial]="link.active ? '' : null"
           [class.mat-list-item-focus]="link.active"
         >
           <mat-icon class="space" [class.active]="link.active" [class.notActive]="!link.active">{{link.icon}}</mat-icon>
-          <span [class.active]="link.active" [class.secondary]="!link.active">{{link.name}}</span>
+          <span id='{{link.name}}-name' [class.active]="link.active" [class.secondary]="!link.active">{{link.name}}</span>
         </a>
       </span>
     </mat-nav-list>
