@@ -1,9 +1,13 @@
-<div id="mobileToolbar" *ngIf="!isMobileView; then toolbar"></div>
+<div id="desktopToolbar">
+  <div *ngIf="!isMobileView; then toolbar"></div>
+</div>
 <mat-sidenav-container
   [class.sidenav-container-desktop]="!isMobileView"
   [class.sidenav-container-small]="isMobileView"
 >
-  <div id="desktopToolbar" *ngIf="isMobileView; then toolbar"></div>
+  <div id="mobileToolbar">
+    <div *ngIf="isMobileView; then toolbar"></div>
+  </div>
   <mat-sidenav fixedInViewport="{{isMobileView}}" #nav mode="{{isMobileView ? 'over' : 'side'}}" opened="{{!isMobileView}}" disableClose="{{!isMobileView}}">
     <mat-nav-list>
       <span *ngFor="let link of buttonList" (click)="onLinkClick()">

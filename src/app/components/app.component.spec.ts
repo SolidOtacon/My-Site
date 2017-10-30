@@ -206,6 +206,40 @@ describe('AppComponent', () => {
     });
   }));
 
+  it('should render the desktop toolbar', async(() => {
+    const tStore = TestBed.get(Store);
+    const location = TestBed.get(Location);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.buttonList = wrapper.mockButtonList;
+    comp.isMobileView = false;
+    comp.title = tStore.select('title');
+    appComponentFixture.detectChanges();
+    appComponentFixture.whenStable().then(() => {
+      appComponentFixture.detectChanges();
+      const desktopToolbar = appComponentFixture.debugElement.query(By.css('#desktopToolbar')).children[0];
+      const mobileToolbar = appComponentFixture.debugElement.query(By.css('#mobileToolbar')).children[0];
+      expect(desktopToolbar.nativeElement).toBeTruthy();
+      expect(mobileToolbar).toBeFalsy();
+    });
+  }));
+
+  it('should render the mobile toolbar', async(() => {
+    const tStore = TestBed.get(Store);
+    const location = TestBed.get(Location);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.buttonList = wrapper.mockButtonList;
+    comp.isMobileView = true;
+    comp.title = tStore.select('title');
+    appComponentFixture.detectChanges();
+    appComponentFixture.whenStable().then(() => {
+      appComponentFixture.detectChanges();
+      const desktopToolbar = appComponentFixture.debugElement.query(By.css('#desktopToolbar')).children[0];
+      const mobileToolbar = appComponentFixture.debugElement.query(By.css('#mobileToolbar')).children[0];
+      expect(desktopToolbar).toBeFalsy();
+      expect(mobileToolbar.nativeElement).toBeTruthy();
+    });
+  }));
+
 });
 
 @Component({
