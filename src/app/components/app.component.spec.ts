@@ -19,10 +19,12 @@ describe('AppComponent', () => {
   const testTitleName = 'nkdsnalknkl';
   let store: Store<fromApp.AppState>;
   let fixture: ComponentFixture<TestWrapperComponent>;
+  let appComponentFixture: ComponentFixture<AppComponent>;
   let wrapper: TestWrapperComponent;
   let app: AppComponent;
-  // let de: DebugElement;
-  // let el: HTMLElement;
+  let comp: AppComponent;
+  let de: DebugElement;
+  let el: HTMLElement;
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
@@ -44,6 +46,10 @@ describe('AppComponent', () => {
     wrapper = fixture.componentInstance;
     store = TestBed.get(Store);
     app = fixture.debugElement.children[0].nativeElement;
+
+    appComponentFixture = TestBed.createComponent(AppComponent);
+    comp = appComponentFixture.componentInstance;
+
     fixture.detectChanges();
   });
 
@@ -83,11 +89,19 @@ describe('AppComponent', () => {
     });
   }));
 
-  // it('should route to contact on link click', () => {
-  //   de = fixture.debugElement.query(By.css('#Contact'));
-  //   el = de.nativeElement;
-  //   fixture.detectChanges();
-  // });
+  it('should have the title in html', async(() => {
+    const tStore = TestBed.get(Store);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.title = tStore.select('title');
+    appComponentFixture.whenStable().then(() => {
+      comp.buttonList = wrapper.mockButtonList;
+      comp.isMobileView = false;
+      appComponentFixture.detectChanges();
+      de = appComponentFixture.debugElement.query(By.css('#title'));
+      el = de.nativeElement;
+      expect(el.textContent).toBe(testTitleName);
+    });
+  }));
 
 });
 

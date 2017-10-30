@@ -28,7 +28,7 @@
     <button *ngIf="isMobileView" mat-icon-button (click)="nav.toggle()">
       <mat-icon class="icon" aria-label="Menu Toggle">menu</mat-icon>
     </button>
-    <span class="text" [class.titleTextMargin]="isMobileView">{{(title | async).title}}</span>
+    <span id="title" class="text" [class.titleTextMargin]="isMobileView">{{(title | async).title}}</span>
     <span class="fill-remaining-space"></span>
     <span>
       <span class="space block">
