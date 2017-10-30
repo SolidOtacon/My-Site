@@ -21,8 +21,10 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<TestWrapperComponent>;
   let wrapper: TestWrapperComponent;
   let app: AppComponent;
+  // let de: DebugElement;
+  // let el: HTMLElement;
 
-  beforeEach( async() => {
+  beforeEach(async() => {
     TestBed.configureTestingModule({
       imports: [
         TestModule,
@@ -35,6 +37,9 @@ describe('AppComponent', () => {
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(TestWrapperComponent);
     wrapper = fixture.componentInstance;
     store = TestBed.get(Store);
@@ -77,6 +82,12 @@ describe('AppComponent', () => {
       expect(app.buttonList[0].name).toBe('test');
     });
   }));
+
+  // it('should route to contact on link click', () => {
+  //   de = fixture.debugElement.query(By.css('#Contact'));
+  //   el = de.nativeElement;
+  //   fixture.detectChanges();
+  // });
 
 });
 
