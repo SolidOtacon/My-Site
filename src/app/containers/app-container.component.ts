@@ -42,31 +42,36 @@ export class AppContainerComponent implements OnInit, OnDestroy {
         name: 'About',
         link: '/about',
         active: false,
-        icon: 'person'
+        icon: 'person',
+        id: 'About'
       },
       {
         name: 'Education',
         link: '/education',
         active: false,
-        icon: 'school'
+        icon: 'school',
+        id: 'Education'
       },
       {
         name: 'Work Experience',
         link: '/work',
         active: false,
-        icon: 'work'
+        icon: 'work',
+        id: 'Work'
       },
       {
         name: 'Skills',
         link: '/skills',
         active: false,
-        icon: 'star_rate'
+        icon: 'star_rate',
+        id: 'Skills'
       },
       {
         name: 'Contact',
         link: '/contact',
         active: false,
-        icon: 'chat'
+        icon: 'chat',
+        id: 'Contact'
       },
     ];
     this.currentActiveButton = '';

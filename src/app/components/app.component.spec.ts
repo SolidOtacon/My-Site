@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { element } from 'protractor';
 import { AppComponent } from './app.component';
@@ -103,6 +104,108 @@ describe('AppComponent', () => {
     });
   }));
 
+  it('should route to contact on link click', async(() => {
+    const tStore = TestBed.get(Store);
+    const location = TestBed.get(Location);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.title = tStore.select('title');
+    appComponentFixture.whenStable().then(() => {
+      comp.buttonList = wrapper.mockButtonList;
+      comp.isMobileView = false;
+      appComponentFixture.detectChanges();
+      de = appComponentFixture.debugElement.query(By.css('#Contact'));
+      el = de.nativeElement;
+      el.click();
+      appComponentFixture.detectChanges();
+      appComponentFixture.whenStable().then(() => {
+        expect(location.path()).toBe('/contact');
+      });
+    });
+  }));
+
+  it('should route to education on link click', async(() => {
+    const tStore = TestBed.get(Store);
+    const location = TestBed.get(Location);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.title = tStore.select('title');
+    appComponentFixture.whenStable().then(() => {
+      comp.buttonList = wrapper.mockButtonList;
+      comp.isMobileView = false;
+      appComponentFixture.detectChanges();
+      de = appComponentFixture.debugElement.query(By.css('#Education'));
+      el = de.nativeElement;
+      el.click();
+      appComponentFixture.detectChanges();
+      appComponentFixture.whenStable().then(() => {
+        expect(location.path()).toBe('/education');
+      });
+    });
+  }));
+
+  it('should route to work on link click', async(() => {
+    const tStore = TestBed.get(Store);
+    const location = TestBed.get(Location);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.title = tStore.select('title');
+    appComponentFixture.whenStable().then(() => {
+      comp.buttonList = wrapper.mockButtonList;
+      comp.isMobileView = false;
+      appComponentFixture.detectChanges();
+      de = appComponentFixture.debugElement.query(By.css('#Work'));
+      el = de.nativeElement;
+      el.click();
+      appComponentFixture.detectChanges();
+      appComponentFixture.whenStable().then(() => {
+        expect(location.path()).toBe('/work');
+      });
+    });
+  }));
+
+  it('should route to skills on link click', async(() => {
+    const tStore = TestBed.get(Store);
+    const location = TestBed.get(Location);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.title = tStore.select('title');
+    appComponentFixture.whenStable().then(() => {
+      comp.buttonList = wrapper.mockButtonList;
+      comp.isMobileView = false;
+      appComponentFixture.detectChanges();
+      de = appComponentFixture.debugElement.query(By.css('#Skills'));
+      el = de.nativeElement;
+      el.click();
+      appComponentFixture.detectChanges();
+      appComponentFixture.whenStable().then(() => {
+        expect(location.path()).toBe('/skills');
+      });
+    });
+  }));
+
+  it('should route to about on link click', async(() => {
+    const tStore = TestBed.get(Store);
+    const location = TestBed.get(Location);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.title = tStore.select('title');
+    appComponentFixture.whenStable().then(() => {
+      comp.buttonList = wrapper.mockButtonList;
+      comp.isMobileView = false;
+      appComponentFixture.detectChanges();
+      de = appComponentFixture.debugElement.query(By.css('#Education'));
+      el = de.nativeElement;
+      el.click();
+      appComponentFixture.detectChanges();
+      appComponentFixture.whenStable().then(() => {
+        expect(location.path()).toBe('/education');
+        de = appComponentFixture.debugElement.query(By.css('#About'));
+        el = de.nativeElement;
+        el.click();
+        appComponentFixture.detectChanges();
+        appComponentFixture.whenStable().then(() => {
+          expect(location.path()).toBe('/about');
+        });
+      });
+    });
+  }));
+
 });
 
 @Component({
@@ -122,35 +225,40 @@ class TestWrapperComponent implements OnInit {
   testTitle: string;
   mockButtonList = [
     {
-      name: 'About',
-      link: '/about',
-      active: false,
-      icon: 'person'
-    },
-    {
-      name: 'Education',
-      link: '/education',
-      active: false,
-      icon: 'school'
-    },
-    {
-      name: 'Work Experience',
-      link: '/work',
-      active: false,
-      icon: 'work'
-    },
-    {
-      name: 'Skills',
-      link: '/skills',
-      active: false,
-      icon: 'star_rate'
-    },
-    {
-      name: 'Contact',
-      link: '/contact',
-      active: false,
-      icon: 'chat'
-    },
+        name: 'About',
+        link: '/about',
+        active: false,
+        icon: 'person',
+        id: 'About'
+      },
+      {
+        name: 'Education',
+        link: '/education',
+        active: false,
+        icon: 'school',
+        id: 'Education'
+      },
+      {
+        name: 'Work Experience',
+        link: '/work',
+        active: false,
+        icon: 'work',
+        id: 'Work'
+      },
+      {
+        name: 'Skills',
+        link: '/skills',
+        active: false,
+        icon: 'star_rate',
+        id: 'Skills'
+      },
+      {
+        name: 'Contact',
+        link: '/contact',
+        active: false,
+        icon: 'chat',
+        id: 'Contact'
+      },
   ];
 
   isMobileView = true;

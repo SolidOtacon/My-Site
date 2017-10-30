@@ -3,4 +3,5 @@ export interface ILink {
   link: string;
   active: boolean;
   icon: string;
+  id: string;
 }
