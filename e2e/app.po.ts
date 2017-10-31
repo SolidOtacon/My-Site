@@ -31,7 +31,7 @@ export class AppPage {
 
   clickLink(id) {
     const EC = ExpectedConditions;
-    const link = element(by.css(`.mat-list-item #${id}`));
+    const link = element(by.css(`#${id}`));
     browser.wait(EC.visibilityOf(link), 5000);
     link.click();
   }
