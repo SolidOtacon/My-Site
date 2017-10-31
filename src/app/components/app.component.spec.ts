@@ -240,6 +240,24 @@ describe('AppComponent', () => {
     });
   }));
 
+  it('should call nav close method', async(() => {
+    const spy = spyOn(comp, 'onLinkClick');
+    const tStore = TestBed.get(Store);
+    const location = TestBed.get(Location);
+    tStore.dispatch(new LayoutAction.SetPageTitle(testTitleName));
+    comp.buttonList = wrapper.mockButtonList;
+    comp.isMobileView = true;
+    comp.title = tStore.select('title');
+    appComponentFixture.detectChanges();
+    appComponentFixture.whenStable().then(() => {
+      appComponentFixture.detectChanges();
+      de = appComponentFixture.debugElement.query(By.css('#Skills'));
+      el = de.nativeElement;
+      el.click();
+      expect(comp.onLinkClick).toHaveBeenCalled();
+    });
+  }));
+
 });
 
 @Component({
