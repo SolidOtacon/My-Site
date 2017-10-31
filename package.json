@@ -9,7 +9,7 @@
     "build": "ng build --prod",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "preprod": "ng test --single-run",
+    "preprod": "ng test --single-run && ng e2e",
     "prod": "ng build --prod",
     "postprod": "firebase login && firebase deploy"
   },
