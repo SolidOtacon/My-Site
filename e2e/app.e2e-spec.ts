@@ -14,29 +14,29 @@ describe('my-site App', () => {
     expect(page.getTitleText()).toEqual('About');
   });
 
-  it('should have update title to Skills', () => {
+  it('should have updated title to Skills', () => {
     page.clickLink(page.linkId.skills);
     expect(page.getTitleText()).toEqual('Skills');
   });
 
-  it('should have update title to About', () => {
+  it('should have updated title to About', () => {
     page.clickLink(page.linkId.skills);
     expect(page.getTitleText()).toEqual('Skills');
     page.clickLink(page.linkId.about);
     expect(page.getTitleText()).toEqual('About');
   });
 
-  it('should have update title to Contact', () => {
+  it('should have updated title to Contact', () => {
     page.clickLink(page.linkId.contact);
     expect(page.getTitleText()).toEqual('Contact');
   });
 
-  it('should have update title to Work Experience', () => {
+  it('should have updated title to Work Experience', () => {
     page.clickLink(page.linkId.work);
     expect(page.getTitleText()).toEqual('Work Experience');
   });
 
-  it('should have update title to Education', () => {
+  it('should have updated title to Education', () => {
     page.clickLink(page.linkId.education);
     expect(page.getTitleText()).toEqual('Education');
   });
