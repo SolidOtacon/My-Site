@@ -1,5 +1,5 @@
 import { MatSidenav } from '@angular/material';
-import { ObservableMedia } from '@angular/flex-layout';
+import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { IMedia } from './../models/media.model';
 import { Component, Input, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { ILink } from './../models/link.model';
