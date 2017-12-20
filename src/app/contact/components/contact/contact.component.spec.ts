@@ -33,6 +33,6 @@ describe('ContactComponent', () => {
   });
 
   it('should have my email address', () => {
-    expect(el.textContent).toEqual('trent_matthias@hotmail.com');
+    expect(el.textContent).toEqual('trentmatthias@gmail.com');
   });
 });
