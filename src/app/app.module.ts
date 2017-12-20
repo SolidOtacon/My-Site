@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppContainerComponent } from './containers/app-container.component';
 import { AppComponent } from './components/app.component';
@@ -26,6 +27,9 @@ import { reducers } from './ngrx/app.reducers';
     SharedModule,
     StoreModule.forRoot(reducers),
     StoreRouterConnectingModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production
+    }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
