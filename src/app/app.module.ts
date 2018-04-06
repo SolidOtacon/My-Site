@@ -30,7 +30,6 @@ import { reducers } from './ngrx/app.reducers';
     ServiceWorkerModule.register('/ngsw-worker.js', {
       enabled: environment.production
     }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
   bootstrap: [AppContainerComponent]
